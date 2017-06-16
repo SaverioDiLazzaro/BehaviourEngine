@@ -8,10 +8,9 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public class BoxCollider2D : Collider2D, IPhysical
+    public class BoxCollider2D : Collider2D, /*IStartable,*/ IUpdatable
     {
-        private SpriteRenderer renderer;
-
+        //private SpriteRenderer renderer;
         public Vector2 Size { get; set; }
         public Vector2 ExtentMin
         {
@@ -49,9 +48,25 @@ namespace BehaviourEngine
             return false;
         }
 
-        void IPhysical.PhysicalUpdate()
-        {
-            this.Position = Owner.Transform.Position;
-        }
+
+        //bool IStartable.IsStarted { get; set; }
+
+        //void IStartable.Start()
+        //{
+        //    renderer = Owner.GetBehaviour<SpriteRenderer>();
+        //}
+        //public override void Update()
+        //{
+        //    base.Update();
+        //    if (renderer != null)
+        //    {
+        //        Position = Owner.Transform.Position - Vector2.One * Radius;
+        //    }
+        //    else
+        //    {
+        //        Position = Owner.Transform.Position;
+        //    }
+        //    Owner.Transform.Scale = Vector2.One * this.Radius * 2f;
+        //}
     }
 }

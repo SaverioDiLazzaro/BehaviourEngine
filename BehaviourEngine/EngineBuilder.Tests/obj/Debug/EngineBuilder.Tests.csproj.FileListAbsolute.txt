@@ -1,0 +1,5 @@
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.exe.config
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.exe
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.pdb
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.exe
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.pdb

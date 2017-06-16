@@ -2,7 +2,7 @@
 
 namespace BehaviourEngine
 {
-    internal interface IStartable : IEntity
+    public interface IStartable : IEntity
     {
         bool IsStarted { get; set; }
         void Start();

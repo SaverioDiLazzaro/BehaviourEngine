@@ -8,13 +8,13 @@ using System.Diagnostics;
 
 namespace BehaviourEngine
 {
-    public class Rigidbody2D : Behaviour, IPhysical
+    public class Rigidbody2D : Behaviour, IUpdatable
     {
         public Vector2 Velocity;
         public bool IsGravityAffected;
         public float LinearFriction;
 
-        void IPhysical.PhysicalUpdate()
+        void IUpdatable.Update()
         {
             if (IsGravityAffected)
             {

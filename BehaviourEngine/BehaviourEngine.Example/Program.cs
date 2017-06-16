@@ -10,7 +10,8 @@ namespace BehaviourEngine.Example
     {
         static void Main(string[] args)
         {
-            
+            GameManager.Init();
+            GameManager.Update();
         }
     }
 }

@@ -2,3 +2,7 @@ F:\BehaviourEngine(My)\EngineBuilder\bin\Debug\EngineBuilder.dll
 F:\BehaviourEngine(My)\EngineBuilder\bin\Debug\EngineBuilder.pdb
 F:\BehaviourEngine(My)\EngineBuilder\obj\Debug\EngineBuilder.dll
 F:\BehaviourEngine(My)\EngineBuilder\obj\Debug\EngineBuilder.pdb
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.dll
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.pdb
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.dll
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.pdb

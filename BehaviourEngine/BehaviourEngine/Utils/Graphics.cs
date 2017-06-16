@@ -9,11 +9,7 @@ namespace BehaviourEngine
 {
     public static class Graphics
     {
-        public static Window Window
-        {
-            get { return Graphics.Window; }
-            set { Graphics.Window = value; }
-        }
+        public static Window Window { get { return graphicSystem.Window; } }
       
         private static GraphicSystem graphicSystem;
         internal static void Init(GraphicSystem graphicSystem)

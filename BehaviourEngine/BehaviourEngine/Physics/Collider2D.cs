@@ -7,7 +7,7 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public abstract class Collider2D : Behaviour, IPhysical
+    public abstract class Collider2D : Behaviour, IUpdatable
     {
         public Vector2 Position { get; protected set; }
 
@@ -34,7 +34,7 @@ namespace BehaviourEngine
 
         public abstract bool Contains(Vector2 point);
         
-        public virtual void PhysicalUpdate()
+        public virtual void Update()
         {
             Position = Owner.Transform.Position;
         }

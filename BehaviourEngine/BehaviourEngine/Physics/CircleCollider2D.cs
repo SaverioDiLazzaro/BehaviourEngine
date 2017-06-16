@@ -7,10 +7,9 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public class CircleCollider2D : Collider2D, IStartable, IPhysical
+    public class CircleCollider2D : Collider2D, IStartable, IUpdatable
     {
-        private SpriteRenderer renderer;
-
+        SpriteRenderer renderer;
         public float Radius { get; set; }
         public Vector2 Center
         {
@@ -36,9 +35,9 @@ namespace BehaviourEngine
         {
             renderer = Owner.GetBehaviour<SpriteRenderer>();
         }
-        public override void PhysicalUpdate()
+        public override void Update()
         {
-            base.PhysicalUpdate();
+            base.Update();
             if (renderer != null)
             {
                 Position = Owner.Transform.Position - Vector2.One * Radius;

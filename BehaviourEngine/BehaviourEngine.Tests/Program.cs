@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BehaviourEngine.Tests
+namespace BehaviourEngine.Example.Tests
 {
     class Program
     {

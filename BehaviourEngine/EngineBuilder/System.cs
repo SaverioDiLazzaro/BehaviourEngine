@@ -9,7 +9,7 @@ namespace EngineBuilder
         private Queue<T> waitForAddItems = new Queue<T>();
         private Queue<T> waitForRemoveItems = new Queue<T>();
 
-        void ISystem.Add(IEntity entity)
+        public virtual void Add(IEntity entity)
         {
             T item = entity as T;
             if (item != null)
@@ -17,7 +17,7 @@ namespace EngineBuilder
                 waitForAddItems.Enqueue(item);
             }
         }
-        void ISystem.Remove(IEntity entity)
+        public virtual void Remove(IEntity entity)
         {
             T item = entity as T;
             if (item != null)

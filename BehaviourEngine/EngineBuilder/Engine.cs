@@ -44,10 +44,9 @@ namespace EngineBuilder
             for (int i = 0; i < systems.Count; i++)
             {
                 systems[i].Add(entity);
-
-                //TODO: to verify
-                entity.Enabled = true;
             }
+
+            entity.Enabled = true;
         }
         public void Remove(IEntity entity)
         {

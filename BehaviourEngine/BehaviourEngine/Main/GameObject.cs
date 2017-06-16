@@ -5,7 +5,8 @@ namespace BehaviourEngine
 {
     public class GameObject
     {
-        public bool Active { get; set; }
+        public bool Active;
+        internal bool IsSpawned;
 
         public Transform Transform;
 
@@ -13,19 +14,18 @@ namespace BehaviourEngine
 
         public GameObject()
         {
-            behaviours = new List<Behaviour>();
+            this.behaviours = new List<Behaviour>();
             this.Transform = new Transform();
             this.AddBehaviour(this.Transform);
-            Active = true;
+            this.Active = true;
         }
 
         public T AddBehaviour<T>(T behaviour) where T : Behaviour
         {
             behaviour.SetOwner(this);
-            behaviours.Add(behaviour);
+            this.behaviours.Add(behaviour);
 
-            //TODO: verify
-            if (this.Active)
+            if (this.IsSpawned)
             {
                 this.Spawn(behaviour);
             }
@@ -74,6 +74,8 @@ namespace BehaviourEngine
         }
         private GameObject Spawn()
         {
+            this.IsSpawned = true;
+
             for (int i = 0; i < behaviours.Count; i++)
             {
                 this.Spawn(behaviours[i]);
