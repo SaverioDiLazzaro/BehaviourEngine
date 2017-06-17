@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using EngineBuilder.Shared;
 
-namespace EngineBuilder
+namespace EngineBuilder.Core
 {
     public abstract class System<T> : ISystem
         where T : class, IEntity

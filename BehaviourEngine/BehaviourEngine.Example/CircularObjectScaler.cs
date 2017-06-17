@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using BehaviourEngine;
 using OpenTK;
 
+using EngineBuilder.Shared;
+
 namespace BehaviourEngine.Example
 {
     public class CircularObjectScaler : ObjectScaler, IStartable, IUpdatable

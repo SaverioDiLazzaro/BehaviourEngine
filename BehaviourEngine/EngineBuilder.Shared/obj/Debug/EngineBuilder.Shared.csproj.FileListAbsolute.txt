@@ -1,0 +1,4 @@
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Shared\bin\Debug\EngineBuilder.Shared.dll
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Shared\bin\Debug\EngineBuilder.Shared.pdb
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Shared\obj\Debug\EngineBuilder.Shared.dll
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Shared\obj\Debug\EngineBuilder.Shared.pdb

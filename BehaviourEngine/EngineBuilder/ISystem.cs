@@ -1,4 +1,6 @@
-﻿namespace EngineBuilder
+﻿using EngineBuilder.Shared;
+
+namespace EngineBuilder.Core
 {
     public interface ISystem
     {

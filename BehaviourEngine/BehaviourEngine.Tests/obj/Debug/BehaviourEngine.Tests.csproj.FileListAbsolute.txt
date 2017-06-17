@@ -3,3 +3,11 @@ C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\bin\Debug\BehaviourEngine.Tests.pdb
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\obj\Debug\BehaviourEngine.Tests.exe
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\obj\Debug\BehaviourEngine.Tests.pdb
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\bin\Debug\BehaviourEngine.Tests.exe.config
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\bin\Debug\BehaviourEngine.Tests.exe
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\bin\Debug\BehaviourEngine.Tests.pdb
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\obj\Debug\BehaviourEngine.Tests.exe
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\obj\Debug\BehaviourEngine.Tests.pdb
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\obj\Debug\BehaviourEngine.Tests.csprojResolveAssemblyReference.cache

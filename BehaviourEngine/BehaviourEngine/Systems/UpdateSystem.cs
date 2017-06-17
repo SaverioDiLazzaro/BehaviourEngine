@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using EngineBuilder;
+using EngineBuilder.Core;
 
 namespace BehaviourEngine
 {

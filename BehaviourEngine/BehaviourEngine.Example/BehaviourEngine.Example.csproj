@@ -72,9 +72,9 @@
       <Project>{7d5df43b-9681-4c50-a28d-c2d6a5476ca8}</Project>
       <Name>BehaviourEngine</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EngineBuilder\EngineBuilder.csproj">
-      <Project>{07f1db04-9626-4dfa-9d95-72c476b8b5ef}</Project>
-      <Name>EngineBuilder</Name>
+    <ProjectReference Include="..\EngineBuilder.Shared\EngineBuilder.Shared.csproj">
+      <Project>{c3c412f0-e5d3-4992-b640-2fa26efe9925}</Project>
+      <Name>EngineBuilder.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

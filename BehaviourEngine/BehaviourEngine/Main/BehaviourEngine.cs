@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using EngineBuilder;
 using Aiv.Fast2D;
 
 namespace BehaviourEngine
 {
-    internal class BehaviourEngine : EngineBuilder.Engine
+    internal class BehaviourEngine : EngineBuilder.Core.Engine
     {
         public override bool IsRunning
         {

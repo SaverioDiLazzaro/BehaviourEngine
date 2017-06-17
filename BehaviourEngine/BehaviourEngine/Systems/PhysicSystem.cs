@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 
-using EngineBuilder;
+using EngineBuilder.Core;
+using EngineBuilder.Shared;
 
 namespace BehaviourEngine
 {

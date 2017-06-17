@@ -7,6 +7,8 @@ using BehaviourEngine;
 using OpenTK;
 using Aiv.Fast2D;
 
+using EngineBuilder.Shared;
+
 namespace BehaviourEngine.Example
 {
     public class CircularCollisionDebugger : Behaviour, IStartable

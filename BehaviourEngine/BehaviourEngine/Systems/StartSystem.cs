@@ -1,5 +1,6 @@
-﻿using EngineBuilder;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+
+using EngineBuilder.Core;
 
 namespace BehaviourEngine
 {

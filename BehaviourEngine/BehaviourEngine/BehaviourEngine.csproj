@@ -93,9 +93,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EngineBuilder\EngineBuilder.csproj">
+    <ProjectReference Include="..\EngineBuilder.Shared\EngineBuilder.Shared.csproj">
+      <Project>{c3c412f0-e5d3-4992-b640-2fa26efe9925}</Project>
+      <Name>EngineBuilder.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EngineBuilder\EngineBuilder.Core.csproj">
       <Project>{07f1db04-9626-4dfa-9d95-72c476b8b5ef}</Project>
-      <Name>EngineBuilder</Name>
+      <Name>EngineBuilder.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
