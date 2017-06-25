@@ -20,11 +20,11 @@ namespace BehaviourEngine
             Sprite = new Sprite(1f, 1f);
         }
 
-        void IUpdatable.Update()
+        public virtual void Update()
         {
             Sprite.position = Owner.Transform.Position;
             Sprite.Rotation = Owner.Transform.Rotation;
-            Sprite.scale =    Owner.Transform.Scale;
+            Sprite.scale    = Owner.Transform.Scale;
         }
 
         public int RenderOffset { get; set; }

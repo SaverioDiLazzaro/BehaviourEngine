@@ -17,7 +17,6 @@ namespace BehaviourEngine
             this.behaviours = new List<Behaviour>();
             this.Transform = new Transform();
             this.AddBehaviour(this.Transform);
-            this.Active = true;
         }
 
         public T AddBehaviour<T>(T behaviour) where T : Behaviour
@@ -75,6 +74,7 @@ namespace BehaviourEngine
         private GameObject Spawn()
         {
             this.IsSpawned = true;
+            this.Active = true;
 
             for (int i = 0; i < behaviours.Count; i++)
             {

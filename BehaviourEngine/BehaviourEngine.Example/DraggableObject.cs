@@ -10,12 +10,13 @@ using EngineBuilder.Shared;
 
 namespace BehaviourEngine.Example
 {
-    public class ClickableObject : Behaviour, IStartable, IUpdatable
+    public class DraggableObject : Behaviour, IStartable, IUpdatable
     {
+        private static DraggableObject currentTarget;
+
         private Collider2D collider;
-        private bool isTrigger;
-        private static ClickableObject currentTarget;
         private Vector2 distance;
+        private bool isTrigger;
 
         bool IStartable.IsStarted { get; set; }
 
@@ -23,19 +24,16 @@ namespace BehaviourEngine.Example
         {
             this.collider = Owner.GetBehaviour<Collider2D>();
         }
-
         void IUpdatable.Update()
         {
-            Vector2 mousePosition = Graphics.Window.mousePosition;
-
-            if (Graphics.Window.mouseLeft)
+            if (Input.IsMouseButtonPressed(MouseButton.Left))
             {
-                if (this.collider.Contains(mousePosition))
+                if (this.collider.Contains(Input.MousePosition))
                 {
                     if (!isTrigger)
                     {
                         isTrigger = true;
-                        distance = this.Owner.Transform.Position - mousePosition;
+                        distance = this.Owner.Transform.Position - Input.MousePosition;
                     }
                 }
 
@@ -43,11 +41,11 @@ namespace BehaviourEngine.Example
                 {
                     if (currentTarget == null)
                     {
-                        ClickableObject.currentTarget = this;
+                        DraggableObject.currentTarget = this;
                     }
                     if (currentTarget == this)
                     {
-                        this.Owner.Transform.Position = mousePosition + distance;
+                        this.Owner.Transform.Position = Input.MousePosition + distance;
                     }
                 }
             }

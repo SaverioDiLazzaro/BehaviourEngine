@@ -5,13 +5,27 @@ using EngineBuilder.Core;
 
 namespace BehaviourEngine
 {
-    public class GraphicSystem : System<IDrawable>
+    sealed public class Graphics : System<IDrawable>
     {
         public Window Window;
-        public GraphicSystem(Window window)
+
+        #region Internal Stuff
+        internal void Init(Window window)
         {
             Window = window;
         }
+        #endregion
+
+        #region Singleton
+        public static Graphics Instance;
+        static Graphics()
+        {
+            Instance = new Graphics();
+        }
+        private Graphics() { }
+        #endregion
+
+        #region System<T>
         public override void Update()
         {
             base.Update();
@@ -27,12 +41,13 @@ namespace BehaviourEngine
             Window.Update();
         }
 
-        protected override void Sort()
+        protected override void SortItems()
         {
-            base.Sort();
+            base.SortItems();
 
             //TODO: too heavy sort
             items.OrderByDescending(item => item.RenderOffset);
         }
+        #endregion
     }
 }

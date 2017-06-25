@@ -7,9 +7,12 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public abstract class Collider2D : Behaviour, IUpdatable
+    public abstract class Collider2D : Behaviour, IPhysical
     {
         public Vector2 Position { get; protected set; }
+        public float Rotation { get; protected set; }
+        public Vector2 Scale { get; protected set; }
+
 
         public delegate void TriggerHandler(Collider2D other);
         public event TriggerHandler TriggerEnter;
@@ -34,9 +37,11 @@ namespace BehaviourEngine
 
         public abstract bool Contains(Vector2 point);
         
-        public virtual void Update()
+        public virtual void PhysicalUpdate()
         {
             Position = Owner.Transform.Position;
+            Rotation = Owner.Transform.Rotation;
+            Scale    = Owner.Transform.Scale;
         }
     }
 }

@@ -8,16 +8,20 @@ using OpenTK;
 
 namespace BehaviourEngine.Example
 {
-    public class RectangularObject : GameObject
+    public class Box : GameObject
     {
-        public RectangularObject(Vector2 position, Vector2 size)
+        public Box(Vector2 position, Vector2 size)
         {
             this.Transform.Position = position;
 
             this.AddBehaviour(new BoxCollider2D(size));
-            this.AddBehaviour(new RectangularCollisionDebugger());
-            this.AddBehaviour(new ClickableObject());
-            this.AddBehaviour(new RectangularObjectScaler());
+            this.AddBehaviour(new BoxCollider2DRenderer());
+
+            this.AddBehaviour(new DraggableObject());
+            this.AddBehaviour(new BoxScaler());
+
+            this.AddBehaviour(new Sensor());
+
             GameObject.Spawn(this);
         }
     }

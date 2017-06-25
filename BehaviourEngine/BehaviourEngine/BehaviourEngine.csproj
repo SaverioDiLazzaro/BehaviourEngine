@@ -38,10 +38,6 @@
     <Reference Include="aiv-fast2d, Version=1.0.6336.29264, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Aiv.Fast2D.0.13.0\lib\net40\aiv-fast2d.dll</HintPath>
     </Reference>
-    <Reference Include="Box2DX, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Box2DX.2.0.2.0\lib\net40\Box2DX.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
     </Reference>
@@ -55,6 +51,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphics\CircleCollider2DRenderer.cs" />
+    <Compile Include="Graphics\BoxCollider2DRenderer.cs" />
+    <Compile Include="Graphics\SpriteRenderer.cs" />
     <Compile Include="Physics\BoxCollider2D.cs" />
     <Compile Include="Physics\CircleCollider2D.cs" />
     <Compile Include="Physics\Collider2D.cs" />
@@ -62,18 +61,16 @@
     <Compile Include="Physics\CollisionPairState.cs" />
     <Compile Include="Physics\Rigidbody2D.cs" />
     <Compile Include="Utils\Engine.cs" />
-    <Compile Include="Utils\Graphics.cs" />
-    <Compile Include="Graphics\SpriteRenderer.cs" />
     <Compile Include="Utils\ExtensionMethods.cs" />
     <Compile Include="Main\Behaviour.cs" />
     <Compile Include="Main\BehaviourEngine.cs" />
     <Compile Include="Main\GameObject.cs" />
-    <Compile Include="Systems\GraphicSystem.cs" />
+    <Compile Include="Systems\Graphics.cs" />
     <Compile Include="Main\IDrawable.cs" />
     <Compile Include="Main\IPhysical.cs" />
     <Compile Include="Main\IStartable.cs" />
     <Compile Include="Main\IUpdatable.cs" />
-    <Compile Include="Systems\PhysicSystem.cs" />
+    <Compile Include="Systems\Physics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Systems\StartSystem.cs" />
     <Compile Include="Systems\UpdateSystem.cs" />
@@ -83,9 +80,7 @@
     <Compile Include="Utils\Input\JoystickButton.cs" />
     <Compile Include="Utils\Input\JoystickIndex.cs" />
     <Compile Include="Utils\Input\MouseButton.cs" />
-    <Compile Include="Utils\Physics.cs" />
     <Compile Include="Utils\TextureManager.cs" />
-    <Compile Include="Utils\Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -102,5 +97,14 @@
       <Name>EngineBuilder.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Box2D.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Circle2D.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

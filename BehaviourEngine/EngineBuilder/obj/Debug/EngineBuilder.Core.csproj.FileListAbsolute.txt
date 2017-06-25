@@ -5,3 +5,17 @@ C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.csprojResolveAssemblyReference.cache
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.pdb
+F:\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Core.dll
+F:\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Core.pdb
+F:\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Shared.dll
+F:\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Shared.pdb
+F:\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.csprojResolveAssemblyReference.cache
+F:\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.dll
+F:\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.pdb
+C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Core.dll
+C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Core.pdb
+C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Shared.dll
+C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Shared.pdb
+C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.csprojResolveAssemblyReference.cache
+C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.dll
+C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.pdb

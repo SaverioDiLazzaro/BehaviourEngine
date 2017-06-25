@@ -10,39 +10,29 @@ using EngineBuilder.Shared;
 
 namespace BehaviourEngine.Example
 {
-    public class CircularObjectScaler : ObjectScaler, IStartable, IUpdatable
+    public class CircleScaler : ObjectScaler, IStartable
     {
         private SpriteRenderer renderer;
         private CircleCollider2D collider;
 
         bool IStartable.IsStarted { get; set; }
-
         void IStartable.Start()
         {
             collider = Owner.GetBehaviour<CircleCollider2D>();
             renderer = Owner.GetBehaviour<SpriteRenderer>();
-            renderer.Pivot = Vector2.One * 0.5f;
         }
 
-        protected override bool CursorContained()
+        protected override bool IsCursorContained()
         {
-            if (collider.Contains(this.mousePos))
+            if (collider.Contains(Input.MousePosition))
                 return true;
             else
                 return false;
         }
 
-        protected override void Alghoritm()
+        protected override void ChangeScale()
         {
-            collider.Radius = MathHelper.Clamp((collider.Center - mousePos).Length, 1f, (collider.Center - mousePos).Length);
+            collider.Radius = MathHelper.Clamp((collider.Center - Input.MousePosition).Length, 1f, (collider.Center - Input.MousePosition).Length);
         }
-
-        //private bool IsMouseOverEdge(Vector2 point)
-        //{
-        //    float distance = (collider.Center - point).Length;
-        //    return distance < collider.Radius + tolerance && distance > collider.Radius - tolerance;
-        //}
-
-
     }
 }

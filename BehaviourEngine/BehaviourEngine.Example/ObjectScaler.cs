@@ -8,30 +8,20 @@ using OpenTK;
 
 namespace BehaviourEngine.Example
 {
-    public abstract class ObjectScaler : Behaviour, IStartable, IUpdatable
+    public abstract class ObjectScaler : Behaviour, IUpdatable
     {
         protected static ObjectScaler currentTarget;
         protected bool trigger;
-        //protected Vector2 distance;
-        internal Vector2 mousePos => Graphics.Window.mousePosition;
-
-        bool IStartable.IsStarted { get; set; }
-
-        public virtual void Start()
-        {
-
-        }
 
         public virtual void Update()
         {
-            if (Graphics.Window.mouseRight)
+            if(Input.IsMouseButtonPressed(MouseButton.Right))
             {
-                if (CursorContained())
+                if (IsCursorContained())
                 {
                     if (!trigger)
                     {
                         trigger = true;
-                       // distance = this.Owner.Transform.Position - mousePos;
                     }
                 }
 
@@ -43,11 +33,10 @@ namespace BehaviourEngine.Example
                     }
                     if (currentTarget == this)
                     {
-                        Alghoritm();
+                        ChangeScale();
                     }
                 }
             }
-           
             else
             {
                 currentTarget = null;
@@ -55,8 +44,7 @@ namespace BehaviourEngine.Example
             }
         }
 
-        protected abstract bool CursorContained();
-
-        protected abstract void Alghoritm();
+        protected abstract bool IsCursorContained();
+        protected abstract void ChangeScale();
     }
 }

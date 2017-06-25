@@ -8,7 +8,7 @@ using OpenTK;
 
 namespace BehaviourEngine.Example
 {
-    public class RectangularObjectScaler : ObjectScaler, IStartable, IUpdatable
+    public class BoxScaler : ObjectScaler, IStartable, IUpdatable
     {
         private BoxCollider2D collider;
 
@@ -16,30 +16,23 @@ namespace BehaviourEngine.Example
         void IStartable.Start()
         {
             collider = Owner.GetBehaviour<BoxCollider2D>();
-            //renderer = Owner.GetBehaviour<SpriteRenderer>();
-            //renderer.Pivot = Vector2.One * 0.5f;
         }
 
-        protected override bool CursorContained()
+        protected override bool IsCursorContained()
         {
-            if (collider.Contains(this.mousePos))
+            if (collider.Contains(Input.MousePosition))
                 return true;
             else
                 return false;
         }
 
-        protected override void Alghoritm()
+        protected override void ChangeScale()
         {
             float ratio = collider.Size.Y / collider.Size.X;
-            float distance = mousePos.X - collider.Center.X;
-            
+            float distance = Input.MousePosition.X - collider.Center.X;
+
             float tolerance = MathHelper.Clamp(distance, 1f, distance);
             collider.Size = new Vector2(tolerance, ratio * tolerance);
         }
-
-       // protected void AlghoritmOverRight()
-       // {
-       //     collider.Size = new Vector2(this.mousePos.X + this.distance.X, collider.Size.Y);
-       // }
     }
 }

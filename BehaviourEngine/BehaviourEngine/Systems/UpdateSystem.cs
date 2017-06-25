@@ -11,7 +11,7 @@ namespace BehaviourEngine
         {
             base.Update();
 
-            Input.Update(Graphics.Window);
+            Input.Update(Graphics.Instance.Window);
 
             for (int i = 0; i < items.Count; i++)
             {

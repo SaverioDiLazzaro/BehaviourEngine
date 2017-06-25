@@ -12,7 +12,6 @@ namespace BehaviourEngine
     {
         public Vector2 Position;
         public float Rotation;
-
         public float EulerRotation
         {
             get
@@ -26,7 +25,6 @@ namespace BehaviourEngine
                 Rotation = value.DegToRad();
             }
         }
-
         public Vector2 Scale = Vector2.One;
     }
 }

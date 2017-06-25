@@ -12,9 +12,13 @@ namespace BehaviourEngine
 
             for (int i = 0; i < items.Count; i++)
             {
-                if (!items[i].IsStarted && items[i].Enabled)
+                if (!items[i].IsStarted)
                 {
                     items[i].Start();
+                    items[i].IsStarted = true;
+
+                    //TODO: verify
+                    this.Remove(items[i]);
                 }
             }
         }

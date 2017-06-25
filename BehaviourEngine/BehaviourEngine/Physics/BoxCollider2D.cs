@@ -8,27 +8,12 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public class BoxCollider2D : Collider2D, /*IStartable,*/ IUpdatable
+    public class BoxCollider2D : Collider2D
     {
-        //private SpriteRenderer renderer;
         public Vector2 Size { get; set; }
-        public Vector2 ExtentMin
-        {
-            get
-            {
-                return this.Position;
-            }
-        }
-
-        public Vector2 ExtentMax
-        {
-            get
-            {
-                return Position + Size;
-            }
-        }
-
         public Vector2 Center { get { return Position + Size * 0.5f; } }
+        public Vector2 ExtentMin { get { return this.Position; } }
+        public Vector2 ExtentMax { get { return Position + Size; } }
 
         public BoxCollider2D(Vector2 size) : base()
         {
@@ -47,26 +32,5 @@ namespace BehaviourEngine
 
             return false;
         }
-
-
-        //bool IStartable.IsStarted { get; set; }
-
-        //void IStartable.Start()
-        //{
-        //    renderer = Owner.GetBehaviour<SpriteRenderer>();
-        //}
-        //public override void Update()
-        //{
-        //    base.Update();
-        //    if (renderer != null)
-        //    {
-        //        Position = Owner.Transform.Position - Vector2.One * Radius;
-        //    }
-        //    else
-        //    {
-        //        Position = Owner.Transform.Position;
-        //    }
-        //    Owner.Transform.Scale = Vector2.One * this.Radius * 2f;
-        //}
     }
 }

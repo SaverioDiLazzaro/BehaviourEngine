@@ -8,27 +8,27 @@ using System.Diagnostics;
 
 namespace BehaviourEngine
 {
-    public class Rigidbody2D : Behaviour, IUpdatable
+    public class Rigidbody2D : Behaviour, IPhysical
     {
         public Vector2 Velocity;
         public bool IsGravityAffected;
         public float LinearFriction;
 
-        void IUpdatable.Update()
+        void IPhysical.PhysicalUpdate()
         {
             if (IsGravityAffected)
             {
-                this.AddForce(Physics.Gravity);
+                this.AddForce(Physics.Instance.Gravity);
             }
 
             this.AddForce(-Velocity * LinearFriction);
 
-            Owner.Transform.Position += Velocity * Time.DeltaTime;
+            Owner.Transform.Position += Velocity * Graphics.Instance.Window.deltaTime;
         }
 
         public void AddForce(Vector2 force)
         {
-            Velocity += force * Time.DeltaTime;
+            Velocity += force * Graphics.Instance.Window.deltaTime;
         }
     }
 }

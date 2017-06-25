@@ -12,13 +12,7 @@ namespace BehaviourEngine
         internal Collider2D Collider2;
         internal CollisionPairState State;
 
-        internal bool PairEnabled
-        {
-            get
-            {
-                return Collider1.Enabled && Collider2.Enabled;
-            }
-        }
+        internal bool PairEnabled { get { return Collider1.Enabled && Collider2.Enabled; } }
 
         internal CollisionPair2D(Collider2D collider1, Collider2D collider2)
         {

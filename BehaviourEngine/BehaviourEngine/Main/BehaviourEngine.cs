@@ -12,21 +12,20 @@ namespace BehaviourEngine
     {
         public override bool IsRunning
         {
-            get { return Graphics.Window.IsOpened; }
-            set { Graphics.Window.opened = value; }
+            get { return Graphics.Instance.Window.opened; }
+            set { Graphics.Instance.Window.opened = value; }
         }
 
-        public BehaviourEngine(Window window)
+        public void Init(Window window)
         {
             StartSystem startSystem = new StartSystem();
             UpdateSystem updateSystem = new UpdateSystem();
-            GraphicSystem graphicSystem = new GraphicSystem(window);
-            PhysicSystem physicSystem = new PhysicSystem();
 
-            Physics.Init(physicSystem);
-            Graphics.Init(graphicSystem);
+            Physics.Instance.Init();
+            Graphics.Instance.Init(window);
 
-            this.Add(startSystem, updateSystem, physicSystem, graphicSystem);
+            this.Add(startSystem, updateSystem, Physics.Instance, Graphics.Instance);
         }
     }
+
 }

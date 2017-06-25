@@ -31,23 +31,25 @@ namespace EngineBuilder.Core
             //actual add objects to the system
             if (waitForAddItems.Count > 0 || waitForRemoveItems.Count > 0)
             {
-                for (int i = 0; i < waitForAddItems.Count; i++)
+                int count = waitForAddItems.Count;
+                for (int i = 0; i < count; i++)
                 {
                     items.Add(waitForAddItems.Dequeue());
                 }
 
-                for (int i = 0; i < waitForRemoveItems.Count; i++)
+                count = waitForRemoveItems.Count;
+                for (int i = 0; i < count; i++)
                 {
                     items.Remove(waitForRemoveItems.Dequeue());
                 }
 
-                Sort();
+                SortItems();
             }
         }
         public virtual void Update()
         {
             DeferredAddOrRemove();
         }
-        protected virtual void Sort() { }
+        protected virtual void SortItems() { }
     }
 }
