@@ -130,10 +130,10 @@ namespace BehaviourEngine
         #region Algorythms (Trigger Detection)
         internal bool Intersect(BoxCollider2D collider1, BoxCollider2D collider2)
         {
-            if (collider1.Position.X < collider2.Position.X + collider2.Size.X &&
-                collider1.Position.X + collider1.Size.X > collider2.Position.X &&
-                collider1.Position.Y < collider2.Position.Y + collider2.Size.Y &&
-                collider1.Position.Y + collider1.Size.Y > collider2.Position.Y)
+            if (collider1.ExtentMin.X < collider2.ExtentMax.X &&
+                collider1.ExtentMax.X > collider2.ExtentMin.X &&
+                collider1.ExtentMin.Y < collider2.ExtentMax.Y &&
+                collider1.ExtentMax.Y > collider2.ExtentMin.Y)
             {
                 return true;
             }

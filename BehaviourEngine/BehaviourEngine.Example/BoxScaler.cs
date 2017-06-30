@@ -8,7 +8,7 @@ using OpenTK;
 
 namespace BehaviourEngine.Example
 {
-    public class BoxScaler : ObjectScaler, IStartable, IUpdatable
+    public class BoxScaler : ObjectScaler, IStartable
     {
         private BoxCollider2D collider;
 

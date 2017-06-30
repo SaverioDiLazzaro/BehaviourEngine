@@ -12,7 +12,6 @@ namespace BehaviourEngine
     {
         public Texture Texture;
         public Sprite Sprite;
-        public Vector2 Pivot { get { return Sprite.pivot; } set { Sprite.pivot = value; } }
 
         public SpriteRenderer(Texture texture) : base()
         {

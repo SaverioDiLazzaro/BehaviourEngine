@@ -19,3 +19,10 @@ C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\bin\De
 C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.csprojResolveAssemblyReference.cache
 C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.dll
 C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.pdb
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Core.dll
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Core.pdb
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Shared.dll
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.Shared.pdb
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.csprojResolveAssemblyReference.cache
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.dll
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.Core.pdb

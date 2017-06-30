@@ -13,14 +13,11 @@ C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.dll
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.pdb
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\aiv-fast2d.dll
-C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.dll
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\OpenTK.dll
-C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.pdb
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\OpenTK.xml
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.csprojResolveAssemblyReference.cache
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.dll
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.pdb
-C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Box2DX.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.csprojResolveAssemblyReference.cache
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.pdb
@@ -28,7 +25,6 @@ C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\b
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.pdb
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\aiv-fast2d.dll
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Box2DX.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Core.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Shared.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\OpenTK.dll
@@ -39,7 +35,6 @@ F:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.dll
 F:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.dll
 F:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.pdb
 F:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\aiv-fast2d.dll
-F:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Box2DX.dll
 F:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Core.dll
 F:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Shared.dll
 F:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\OpenTK.dll
@@ -66,3 +61,26 @@ C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\BehaviourEngine\bin\
 C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.csprojResolveAssemblyReference.cache
 C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.dll
 C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.pdb
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Assets\Box2D.png
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Assets\Circle2D.png
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Core.dll
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Shared.dll
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Shared.pdb
+C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Core.pdb
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Assets\Box2D.png
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Assets\Circle2D.png
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.dll.config
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.dll
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\BehaviourEngine.pdb
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\aiv-fast2d.dll
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Core.dll
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Shared.dll
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\OpenTK.dll
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Shared.pdb
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\EngineBuilder.Core.pdb
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\OpenTK.xml
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.csprojResolveAssemblyReference.cache
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.dll
+E:\BehaviourEngine\BehaviourEngine\BehaviourEngine\obj\Debug\BehaviourEngine.pdb
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Assets\Box2D.png
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine\bin\Debug\Assets\Circle2D.png
