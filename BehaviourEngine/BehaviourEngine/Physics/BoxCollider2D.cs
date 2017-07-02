@@ -34,7 +34,7 @@ namespace BehaviourEngine
         public BoxCollider2D(Vector2 size) : base()
         {
             Size = size;
-        }    
+        }
 
         public override bool Contains(Vector2 point)
         {
@@ -53,6 +53,12 @@ namespace BehaviourEngine
         void IStartable.Start()
         {
             renderer = Owner.GetBehaviour<BoxCollider2DRenderer>();
+        }
+
+        public override void PhysicalUpdate()
+        {
+            base.PhysicalUpdate();
+            Owner.Transform.Scale = Size;
         }
     }
 }

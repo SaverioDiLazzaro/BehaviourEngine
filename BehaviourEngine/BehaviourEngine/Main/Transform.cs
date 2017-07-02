@@ -15,6 +15,7 @@ namespace BehaviourEngine
         #region Position
         private Vector2 position;
         private Vector2 positionOffset;
+        private Vector2 originalPositionOffset;
         public Vector2 Position
         {
             get
@@ -48,10 +49,25 @@ namespace BehaviourEngine
         #endregion
 
         #region Rotation
-        //private float rotation;
+        private float rotation;
         private float rotationOffset;
-        private float localRotationOffset;
-        public float Rotation;
+        private float angle;
+        private float angleOffset;
+        public float Rotation
+        {
+            get
+            {
+                return rotation;
+            }
+            set
+            {
+                rotation = value;
+                if(Parent != null)
+                {
+                    angleOffset = value - angle;
+                }
+            }
+        }
         public float EulerRotation
         {
             get
@@ -67,7 +83,22 @@ namespace BehaviourEngine
         }
         #endregion
 
-        public Vector2 Scale = Vector2.One;
+        private Vector2 scale = Vector2.One;
+        public Vector2 Scale
+        {
+            get
+            {
+                return scale;
+            }
+            set
+            {
+                scale = value;
+                if(Parent != null)
+                {
+                   
+                }
+            }
+        }
 
         public void SetParent(Transform parent)
         {
@@ -76,9 +107,10 @@ namespace BehaviourEngine
             if (parent != null)
             {
                 positionOffset = this.Position - parent.Position;
+                originalPositionOffset = positionOffset;
 
                 rotationOffset = parent.Rotation;
-                localRotationOffset = this.Rotation;
+                angleOffset = this.Rotation;
             }
         }
 
@@ -90,18 +122,18 @@ namespace BehaviourEngine
                 this.Position = Parent.Position + positionOffset;
 
                 //Change Child Rotation
-                float angle = Parent.Rotation - rotationOffset;
+                angle = Parent.Rotation - rotationOffset;
 
                 float newX = this.Parent.position.X + (positionOffset.X) * (float)Math.Cos(angle) - (positionOffset.Y) * (float)Math.Sin(angle);
                 float newY = this.Parent.position.Y + (positionOffset.X) * (float)Math.Sin(angle) + (positionOffset.Y) * (float)Math.Cos(angle);
 
                 position = new Vector2(newX, newY);
 
-                Console.WriteLine("OLD: " + this.Rotation.RadToDeg() + " NEW: " + angle.RadToDeg());
+                this.Rotation = angle + angleOffset;
 
-                this.Rotation = angle + localRotationOffset;
-
-                //Change Scale
+                //Change Child Scale
+                scale *= Parent.scale;
+                positionOffset = originalPositionOffset * Parent.scale;
             }
         }
     }

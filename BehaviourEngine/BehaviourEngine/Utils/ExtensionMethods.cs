@@ -7,7 +7,6 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    //TODO: insert somewhere
     public static class ExtensionMethods
     {
         public static float RadToDeg(this float fRad)

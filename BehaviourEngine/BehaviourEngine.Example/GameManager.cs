@@ -21,11 +21,7 @@ namespace BehaviourEngine.Example
 
             //Box01
             GameObject box      = new Box(new Vector2(10f, 10f), new Vector2(1f, 1f));
-            box.AddBehaviour(
-            new Rotator()
-            {
-                RotationSpeed = 50
-            });
+            box.AddBehaviour(new Rotator());
             box.AddBehaviour(new PositionRenderer());
             box.GetBehaviour<BoxCollider2DRenderer>().Sprite.pivot = Vector2.One * 0.5f;
 
@@ -33,6 +29,12 @@ namespace BehaviourEngine.Example
             GameObject box2 = new Box(new Vector2(14f, 10f), new Vector2(3f, 3f));
             box2.AddBehaviour(new ParentSwitch(box.Transform));
             box2.AddBehaviour(new PositionRenderer());
+            box2.AddBehaviour(
+            new Rotator()
+            {
+                LeftKey = KeyCode.Left,
+                RightKey = KeyCode.Right
+            });
             box2.GetBehaviour<BoxCollider2DRenderer>().Sprite.pivot = Vector2.One * 0.5f;
 
             //Circle01

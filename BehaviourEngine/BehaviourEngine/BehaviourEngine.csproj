@@ -80,6 +80,7 @@
     <Compile Include="Utils\Input\JoystickButton.cs" />
     <Compile Include="Utils\Input\JoystickIndex.cs" />
     <Compile Include="Utils\Input\MouseButton.cs" />
+    <Compile Include="Utils\Pool.cs" />
     <Compile Include="Utils\TextureManager.cs" />
   </ItemGroup>
   <ItemGroup>

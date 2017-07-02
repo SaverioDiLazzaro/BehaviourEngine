@@ -17,7 +17,6 @@ namespace BehaviourEngine
                     items[i].Start();
                     items[i].IsStarted = true;
 
-                    //TODO: verify
                     this.Remove(items[i]);
                 }
             }

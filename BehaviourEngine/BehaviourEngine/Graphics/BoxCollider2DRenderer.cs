@@ -29,9 +29,9 @@ namespace BehaviourEngine
 
         public override void Update()
         {
-            this.Sprite.position = collider.Position;
-            this.Sprite.Rotation = collider.Rotation;
-            this.Sprite.scale = collider.Size;
+            this.Sprite.position = Owner.Transform.Position;
+            this.Sprite.Rotation = Owner.Transform.Rotation;
+            this.Sprite.scale    = Owner.Transform.Scale;
         }
     }
 }
