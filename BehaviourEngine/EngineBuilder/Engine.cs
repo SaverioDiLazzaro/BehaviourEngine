@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using EngineBuilder.Shared;
+using System.Linq;
 
 namespace EngineBuilder.Core
 {
@@ -7,20 +8,27 @@ namespace EngineBuilder.Core
     {
         protected List<ISystem> systems = new List<ISystem>();
         public abstract bool IsRunning { get; set; }
+
         public void Run()
         {
+            SortSystems();
+
             while (IsRunning)
             {
-                //Update Systems
                 for (int i = 0; i < systems.Count; i++)
                 {
                     systems[i].Update();
                 }
             }
         }
+
         public void Add(ISystem system)
         {
             systems.Add(system);
+        }
+        public bool Remove(ISystem system)
+        {
+            return systems.Remove(system);
         }
         public void Add(params ISystem[] systems)
         {
@@ -28,10 +36,6 @@ namespace EngineBuilder.Core
             {
                 this.Add(systems[i]);
             }
-        }
-        public bool Remove(ISystem system)
-        {
-            return systems.Remove(system);
         }
         public void Remove(params ISystem[] systems)
         {
@@ -55,6 +59,12 @@ namespace EngineBuilder.Core
             {
                 systems[i].Remove(entity);
             }
+        }
+
+        protected void SortSystems()
+        {
+            //TODO: too heavy
+            systems.OrderByDescending(item => item.UpdateOffset);
         }
     }
 }

@@ -43,9 +43,7 @@ namespace BehaviourEngine
 
         protected override void SortItems()
         {
-            base.SortItems();
-
-            //TODO: too heavy sort
+            //TODO: too heavy
             items.OrderByDescending(item => item.RenderOffset);
         }
         #endregion

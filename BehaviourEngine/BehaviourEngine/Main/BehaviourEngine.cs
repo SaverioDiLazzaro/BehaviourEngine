@@ -24,6 +24,7 @@ namespace BehaviourEngine
             Physics.Instance.Init();
             Graphics.Instance.Init(window);
 
+            //Systems are updated by the order they are added to the engine
             this.Add(startSystem, updateSystem, Physics.Instance, Graphics.Instance);
         }
     }

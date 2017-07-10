@@ -10,7 +10,6 @@ C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tes
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.pdb
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\nunit.framework.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\nunit.framework.xml
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.csprojResolveAssemblyReference.cache
 F:\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.exe.config
 F:\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.exe
 F:\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.pdb
