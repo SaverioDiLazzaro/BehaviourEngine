@@ -18,5 +18,13 @@ namespace BehaviourEngine
         {
             return MathHelper.Pi / 180f * fDeg;
         }
+
+        public static Vector2 PerVector2(this Matrix2 m, Vector2 vector2)
+        {
+            float x = Vector2.Dot(m.Row0, vector2);
+            float y = Vector2.Dot(m.Row1, vector2);
+
+            return new Vector2(x, y);
+        }
     }
 }

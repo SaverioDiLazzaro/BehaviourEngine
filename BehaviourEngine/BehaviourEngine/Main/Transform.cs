@@ -14,8 +14,6 @@ namespace BehaviourEngine
 
         #region Position
         private Vector2 position;
-        private Vector2 positionOffset;
-        private Vector2 originalPositionOffset;
         public Vector2 Position
         {
             get
@@ -27,47 +25,18 @@ namespace BehaviourEngine
                 position = value;
                 if (Parent != null)
                 {
-                    positionOffset = this.Position - Parent.Position;
+                    //recalculate offset
+                    LocalPosition = this.position - Parent.position;
                 }
             }
         }
-        //public Vector2 LocalPosition
-        //{
-        //    get
-        //    {
-        //        if (Parent != null)
-        //        {
-        //            return this.Position - Parent.Position;
-        //        }
-        //        return Position;
-        //    }
-        //    set
-        //    {
-        //        Position += value - LocalPosition;
-        //    }
-        //}
+
+        public Vector2 LocalPosition;
         #endregion
 
         #region Rotation
-        private float rotation;
-        private float rotationOffset;
-        private float angle;
-        private float angleOffset;
-        public float Rotation
-        {
-            get
-            {
-                return rotation;
-            }
-            set
-            {
-                rotation = value;
-                if(Parent != null)
-                {
-                    angleOffset = value - angle;
-                }
-            }
-        }
+        public float Rotation;
+        private float previousParentRotation;
         public float EulerRotation
         {
             get
@@ -83,34 +52,25 @@ namespace BehaviourEngine
         }
         #endregion
 
-        private Vector2 scale = Vector2.One;
-        public Vector2 Scale
-        {
-            get
-            {
-                return scale;
-            }
-            set
-            {
-                scale = value;
-                if(Parent != null)
-                {
-                   
-                }
-            }
-        }
+        #region Scale
+        public Vector2 Scale = Vector2.One;
+        private Vector2 previousParentScale;
+        #endregion
 
         public void SetParent(Transform parent)
         {
-            this.Parent = parent;
+            Parent = parent;
 
             if (parent != null)
             {
-                positionOffset = this.Position - parent.Position;
-                originalPositionOffset = positionOffset;
+                //calculate without property
+                LocalPosition = this.position - parent.position;
 
-                rotationOffset = parent.Rotation;
-                angleOffset = this.Rotation;
+                //save previous parent rot
+                previousParentRotation = Parent.Rotation;
+
+                //save previous parent scale
+                previousParentScale = Parent.Scale;
             }
         }
 
@@ -118,23 +78,28 @@ namespace BehaviourEngine
         {
             if (Parent != null)
             {
-                //Change Child Position
-                this.Position = Parent.Position + positionOffset;
+                //delta from previous frame to current frame
+                float deltaAngle = Parent.Rotation - previousParentRotation;
 
                 //Change Child Rotation
-                angle = Parent.Rotation - rotationOffset;
+                Matrix2 newRotation = Matrix2.CreateRotation(-deltaAngle);
+                LocalPosition = newRotation.PerVector2(LocalPosition);
+                this.position = Parent.position + LocalPosition;
+                //save prev parent rot
+                previousParentRotation = Parent.Rotation;
 
-                float newX = this.Parent.position.X + (positionOffset.X) * (float)Math.Cos(angle) - (positionOffset.Y) * (float)Math.Sin(angle);
-                float newY = this.Parent.position.Y + (positionOffset.X) * (float)Math.Sin(angle) + (positionOffset.Y) * (float)Math.Cos(angle);
+                //Calculate scale difference between previous and current parent scale
+                Vector2 scaleVariation = new Vector2(Parent.Scale.X / previousParentScale.X, Parent.Scale.Y / previousParentScale.Y);
+                LocalPosition *= scaleVariation;
 
-                position = new Vector2(newX, newY);
+                Scale *= Parent.Scale * scaleVariation;
 
-                this.Rotation = angle + angleOffset;
+                //save prev parent scale
+                previousParentScale = Parent.Scale;
 
-                //Change Child Scale
-                scale *= Parent.scale;
-                positionOffset = originalPositionOffset * Parent.scale;
+                Console.WriteLine("Parent: " + Parent.Scale);
             }
+            Console.WriteLine("Child: " + Scale);
         }
     }
 }

@@ -47,11 +47,11 @@ namespace EngineBuilder.Core
             }
         }
 
+        public virtual int UpdateOffset { get; set; }
         public virtual void Update()
         {
             DeferredAddOrRemove();
         }
-        public virtual int UpdateOffset { get; set; }
         protected virtual void SortItems() { }
     }
 }
