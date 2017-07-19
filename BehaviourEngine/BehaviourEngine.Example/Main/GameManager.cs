@@ -39,12 +39,16 @@ namespace BehaviourEngine.Example
 
             //Circle01
             GameObject circle = new Circle(new Vector2(3f, 0f), 2f);
-            circle.AddBehaviour(new Rigidbody2D()
-            {
-                IsGravityAffected = true
-            });
+            //circle.AddBehaviour(new Rigidbody2D()
+            //{
+            //    IsGravityAffected = true
+            //});
             circle.AddBehaviour(new PositionRenderer());
             circle.GetBehaviour<CircleCollider2DRenderer>().Sprite.pivot = Vector2.One * 0.5f;
+
+
+            TextureManager.AddTexture("mario", new Texture("Assets/mario.png"));
+            box.AddBehaviour(new SpriteRenderer(TextureManager.GetTexture("mario")));
         }
 
         public static void Update()

@@ -8,7 +8,7 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public class Transform : Behaviour, IUpdatable
+    public class Transform : Behaviour
     {
         public Transform Parent { get; protected set; }
 
@@ -28,6 +28,11 @@ namespace BehaviourEngine
                     //recalculate offset
                     LocalPosition = this.position - Parent.position;
                 }
+
+                for (int i = 0; i < childs.Count; i++)
+                {
+                    childs[i].UpdateChildPosition();
+                }
             }
         }
 
@@ -35,7 +40,24 @@ namespace BehaviourEngine
         #endregion
 
         #region Rotation
-        public float Rotation;
+        private float rotation;
+        public float Rotation
+        {
+            get
+            {
+                return rotation;
+            }
+            set
+            {
+                rotation = value;
+
+                for (int i = 0; i < childs.Count; i++)
+                {
+                    childs[i].UpdateChildRotation();
+                }
+            }
+        }
+
         private float previousParentRotation;
         public float EulerRotation
         {
@@ -53,53 +75,191 @@ namespace BehaviourEngine
         #endregion
 
         #region Scale
-        public Vector2 Scale = Vector2.One;
+        private Vector2 scale = Vector2.One;
+        public Vector2 Scale
+        {
+            get
+            {
+                return scale;
+            }
+            set
+            {
+                scale = value;
+
+                for (int i = 0; i < childs.Count; i++)
+                {
+                    childs[i].UpdateChildScale();
+                }
+            }
+        }
+
         private Vector2 previousParentScale;
         #endregion
 
         public void SetParent(Transform parent)
         {
-            Parent = parent;
-
             if (parent != null)
             {
+                parent.AddChild(this);
+
                 //calculate without property
                 LocalPosition = this.position - parent.position;
 
                 //save previous parent rot
-                previousParentRotation = Parent.Rotation;
+                previousParentRotation = parent.Rotation;
 
                 //save previous parent scale
-                previousParentScale = Parent.Scale;
+                previousParentScale = parent.Scale;
             }
-        }
-
-        void IUpdatable.Update()
-        {
-            if (Parent != null)
+            else
             {
-                //delta from previous frame to current frame
-                float deltaAngle = Parent.Rotation - previousParentRotation;
-
-                //Change Child Rotation
-                Matrix2 newRotation = Matrix2.CreateRotation(-deltaAngle);
-                LocalPosition = newRotation.PerVector2(LocalPosition);
-                this.position = Parent.position + LocalPosition;
-                //save prev parent rot
-                previousParentRotation = Parent.Rotation;
-
-                //Calculate scale difference between previous and current parent scale
-                Vector2 scaleVariation = new Vector2(Parent.Scale.X / previousParentScale.X, Parent.Scale.Y / previousParentScale.Y);
-                LocalPosition *= scaleVariation;
-
-                Scale *= Parent.Scale * scaleVariation;
-
-                //save prev parent scale
-                previousParentScale = Parent.Scale;
-
-                Console.WriteLine("Parent: " + Parent.Scale);
+                Parent.RemoveChild(this);
             }
-            Console.WriteLine("Child: " + Scale);
+
+            Parent = parent;
         }
+
+        #region Child Handling
+        private List<Transform> childs = new List<Transform>();
+
+        private void UpdateChildPosition()
+        {
+            Position = Parent.Position + LocalPosition;
+        }
+
+        private void UpdateChildRotation()
+        {
+            //delta from previous frame to current frame
+            float deltaAngle = Parent.Rotation - previousParentRotation;
+
+            //Change Rotation
+            this.Rotation += deltaAngle;
+
+            //Change Position
+            Matrix2 newRotation = Matrix2.CreateRotation(-deltaAngle);
+            LocalPosition = newRotation.PerVector2(LocalPosition);
+            this.position = Parent.position + LocalPosition;
+
+            //save prev parent rot
+            previousParentRotation = Parent.Rotation;
+        }
+
+        private void UpdateChildScale()
+        {
+            ////Calculate scale difference between previous and current parent scale
+            //Vector2 parentScaleRatio = new Vector2(Parent.Scale.X / previousParentScale.X, Parent.Scale.Y / previousParentScale.Y);
+
+            ////Vector2 ratio = new Vector2(Parent.scale.X / scale.X, Parent.scale.Y / scale.Y);
+            //scale *= parentScaleRatio;
+
+            ////position *= parentScaleRatio;
+
+            ////save prev parent scale
+            //previousParentScale = Parent.Scale;
+        }
+
+        private void AddChild(Transform child)
+        {
+            if (!childs.Contains(child))
+            {
+                childs.Add(child);
+            }
+        }
+        private void RemoveChild(Transform child)
+        {
+            childs.Remove(child);
+        }
+        #endregion
     }
+
+
+
+    //public class Transform : Behaviour, IUpdatable
+    //#region Position
+    //private Vector2 position;
+    //public Vector2 Position
+    //{
+    //    get
+    //    {
+    //        return position;
+    //    }
+    //    set
+    //    {
+    //        position = value;
+    //        if (Parent != null)
+    //        {
+    //            //recalculate offset
+    //            LocalPosition = this.position - Parent.position;
+    //        }
+    //    }
+    //}
+
+    //public Vector2 LocalPosition;
+    //#endregion
+
+    //#region Rotation
+    //public float Rotation;
+    //private float previousParentRotation;
+    //public float EulerRotation
+    //{
+    //    get
+    //    {
+    //        //deg
+    //        return Rotation.RadToDeg();
+    //    }
+    //    set
+    //    {
+    //        //rad
+    //        Rotation = value.DegToRad();
+    //    }
+    //}
+    //#endregion
+
+    //#region Scale
+    //public Vector2 Scale = Vector2.One;
+    //private Vector2 previousParentScale;
+    //#endregion
+
+    //public void SetParent(Transform parent)
+    //{
+    //    Parent = parent;
+
+    //    if (parent != null)
+    //    {
+    //        //calculate without property
+    //        LocalPosition = this.position - parent.position;
+
+    //        //save previous parent rot
+    //        previousParentRotation = Parent.Rotation;
+
+    //        //save previous parent scale
+    //        previousParentScale = Parent.Scale;
+    //    }
+    //}
+
+    //void IUpdatable.Update()
+    //{
+    //    if (Parent != null)
+    //    {
+    //        //delta from previous frame to current frame
+    //        float deltaAngle = Parent.Rotation - previousParentRotation;
+
+    //        //Change Child Rotation
+    //        Matrix2 newRotation = Matrix2.CreateRotation(-deltaAngle);
+    //        LocalPosition = newRotation.PerVector2(LocalPosition);
+    //        this.position = Parent.position + LocalPosition;
+
+    //        //save prev parent rot
+    //        previousParentRotation = Parent.Rotation;
+
+    //        //Calculate scale difference between previous and current parent scale
+    //        Vector2 scaleVariation = new Vector2(Parent.Scale.X / previousParentScale.X, Parent.Scale.Y / previousParentScale.Y);
+    //        LocalPosition *= scaleVariation;
+
+    //        Scale *= Parent.Scale * scaleVariation;
+
+    //        //save prev parent scale
+    //        previousParentScale = Parent.Scale;
+    //    }
+    //}
 }

@@ -9,8 +9,8 @@ namespace BehaviourEngine
 {
     public class CircleCollider2D : Collider2D, IStartable
     {
-        public float Radius { get; set; }
-        public Vector2 Center { get { return Position + Vector2.One * Radius - PivotOffset; } }
+        public float Radius { get; private set; }
+        public Vector2 Center { get { return internalTransform.Position + Vector2.One * Radius - PivotOffset; } }
 
         private CircleCollider2DRenderer renderer;
         private Vector2 PivotOffset
@@ -24,19 +24,34 @@ namespace BehaviourEngine
                 return Vector2.Zero;
             }
         }
+
         public CircleCollider2D(float radius)
         {
             this.Radius = radius;
         }
+
+        public void SetRadius(float radius)
+        {
+            Radius = radius;
+            internalTransform.Scale = Vector2.One * radius;
+        }
+
         public override bool Contains(Vector2 point)
         {
             return (point - Center).Length < Radius;
         }
 
-        bool IStartable.IsStarted { get; set; }
         void IStartable.Start()
         {
+            base.Start();
             renderer = Owner.GetBehaviour<CircleCollider2DRenderer>();
+
+            SetRadius(Radius);
+        }
+
+        public override void PhysicalUpdate()
+        {
+            Radius = internalTransform.Scale.X;
         }
     }
 }

@@ -8,22 +8,40 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public class SpriteRenderer : Behaviour, IUpdatable, IDrawable
+    public class SpriteRenderer : Behaviour, IStartable, IUpdatable, IDrawable
     {
         public Texture Texture;
         public Sprite Sprite;
+
+        protected Transform internalTransform;
 
         public SpriteRenderer(Texture texture) : base()
         {
             this.Texture = texture;
             Sprite = new Sprite(1f, 1f);
+            Sprite.pivot = Vector2.One * 0.5f;
+        }
+
+        bool IStartable.IsStarted { get; set; }
+        public virtual void Start()
+        {
+            //TODO: duplicated code in boxcollider2d
+            internalTransform = new Transform()
+            {
+                Position = Owner.Transform.Position,
+                Rotation = Owner.Transform.Rotation,
+                Scale = Owner.Transform.Scale
+            };
+
+            internalTransform.SetParent(Owner.Transform);
+            Owner.AddBehaviour(internalTransform);
         }
 
         public virtual void Update()
         {
-            Sprite.position = Owner.Transform.Position;
-            Sprite.Rotation = Owner.Transform.Rotation;
-            Sprite.scale    = Owner.Transform.Scale;
+            Sprite.position = internalTransform.Position;
+            Sprite.Rotation = internalTransform.Rotation;
+            Sprite.scale    = internalTransform.Scale;
         }
 
         public int RenderOffset { get; set; }

@@ -11,19 +11,10 @@ namespace BehaviourEngine.Example
     public class BoxScaler : ObjectScaler, IStartable
     {
         private BoxCollider2D collider;
-
-        bool IStartable.IsStarted { get; set; }
-        void IStartable.Start()
+        public override void Start()
         {
+            base.Start();
             collider = Owner.GetBehaviour<BoxCollider2D>();
-        }
-
-        protected override bool IsCursorContained()
-        {
-            if (collider.Contains(Input.MousePosition))
-                return true;
-            else
-                return false;
         }
 
         protected override void ChangeScale()
@@ -32,7 +23,9 @@ namespace BehaviourEngine.Example
             float distance = Input.MousePosition.X - collider.Center.X;
 
             float tolerance = MathHelper.Clamp(distance, 1f, distance);
-            collider.Size = new Vector2(tolerance, ratio * tolerance);
+            Vector2 newSize = new Vector2(tolerance, ratio * tolerance);
+
+            Owner.Transform.Scale = newSize;
         }
     }
 }

@@ -7,17 +7,14 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public abstract class Collider2D : Behaviour, IPhysical
+    public abstract class Collider2D : Behaviour, IStartable, IPhysical
     {
-        public Vector2 Position { get; protected set; }
-        public float Rotation { get; protected set; }
-        public Vector2 Scale { get; protected set; }
-
-
         public delegate void TriggerHandler(Collider2D other);
         public event TriggerHandler TriggerEnter;
         public event TriggerHandler TriggerStay;
         public event TriggerHandler TriggerExit;
+
+        internal Transform internalTransform;
 
         internal void Trigger(Collider2D other, CollisionPairState state)
         {
@@ -36,12 +33,22 @@ namespace BehaviourEngine
         }
 
         public abstract bool Contains(Vector2 point);
-        
-        public virtual void PhysicalUpdate()
+
+        bool IStartable.IsStarted { get; set; }
+        public virtual void Start()
         {
-            Position = Owner.Transform.Position;
-            Rotation = Owner.Transform.Rotation;
-            Scale    = Owner.Transform.Scale;
+            //TODO: duplicated code in spriterenderer
+            internalTransform = new Transform()
+            {
+                Position = Owner.Transform.Position,
+                Rotation = Owner.Transform.Rotation,
+                Scale = Owner.Transform.Scale
+            };
+
+            internalTransform.SetParent(Owner.Transform);
+            Owner.AddBehaviour(internalTransform);
         }
+
+        public abstract void PhysicalUpdate();
     }
 }

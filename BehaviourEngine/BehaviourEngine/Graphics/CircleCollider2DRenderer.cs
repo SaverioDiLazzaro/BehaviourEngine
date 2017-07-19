@@ -28,8 +28,8 @@ namespace BehaviourEngine
 
         public override void Update()
         {
-            this.Sprite.position = collider.Position;
-            this.Sprite.Rotation = collider.Rotation;
+            this.Sprite.position = collider.internalTransform.Position;
+            this.Sprite.Rotation = collider.internalTransform.Rotation;
             this.Sprite.scale = Vector2.One * collider.Radius * 2f;
         }
     }

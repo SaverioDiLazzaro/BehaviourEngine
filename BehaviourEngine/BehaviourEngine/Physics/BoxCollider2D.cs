@@ -8,32 +8,23 @@ using OpenTK;
 
 namespace BehaviourEngine
 {
-    public class BoxCollider2D : Collider2D, IStartable
+    public class BoxCollider2D : Collider2D
     {
-
-        public Vector2 Size { get; set; }
-
+        public Vector2 Size { get; private set; }
+        //public Vector2 Offset;
         public Vector2 Center { get { return (ExtentMin + ExtentMax) * 0.5f; } }
-        public Vector2 ExtentMin { get { return this.Position - PivotOffset; } }
-        public Vector2 ExtentMax { get { return Position + Size - PivotOffset; } }
-
-        private BoxCollider2DRenderer renderer;
-        private Vector2 PivotOffset
-        {
-            get
-            {
-                if (renderer != null)
-                {
-                    return renderer.Sprite.pivot * Size;
-                }
-                return Vector2.Zero;
-            }
-        }
-
+        public Vector2 ExtentMin { get { return internalTransform.Position - Size * 0.5f; } }
+        public Vector2 ExtentMax { get { return internalTransform.Position + Size * 0.5f; } }
 
         public BoxCollider2D(Vector2 size) : base()
         {
             Size = size;
+        }
+
+        public void SetSize(Vector2 size)
+        {
+            Size = size;
+            internalTransform.Scale = Size;
         }
 
         public override bool Contains(Vector2 point)
@@ -49,16 +40,16 @@ namespace BehaviourEngine
             return false;
         }
 
-        bool IStartable.IsStarted { get; set; }
-        void IStartable.Start()
+        public override void Start()
         {
-            renderer = Owner.GetBehaviour<BoxCollider2DRenderer>();
+            base.Start();
+
+            SetSize(Size);
         }
 
         public override void PhysicalUpdate()
         {
-            base.PhysicalUpdate();
-            Owner.Transform.Scale = Size;
+            Size = internalTransform.Scale;
         }
     }
 }

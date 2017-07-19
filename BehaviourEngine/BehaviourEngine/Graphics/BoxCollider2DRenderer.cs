@@ -11,27 +11,24 @@ using EngineBuilder.Shared;
 
 namespace BehaviourEngine
 {
-    public class BoxCollider2DRenderer : SpriteRenderer, IStartable
+    public class BoxCollider2DRenderer : SpriteRenderer
     {
         BoxCollider2D collider;
         static BoxCollider2DRenderer()
         {
             TextureManager.AddTexture("Box2D", new Texture("Assets/Box2D.png"));
         }
-
         public BoxCollider2DRenderer() : base(TextureManager.GetTexture("Box2D")) { }
-
-        bool IStartable.IsStarted { get; set; }
-        void IStartable.Start()
+        public override void Start()
         {
+            base.Start();
             collider = this.Owner.GetBehaviour<BoxCollider2D>();
         }
-
         public override void Update()
         {
-            this.Sprite.position = Owner.Transform.Position;
-            this.Sprite.Rotation = Owner.Transform.Rotation;
-            this.Sprite.scale    = Owner.Transform.Scale;
+            this.Sprite.position = collider.internalTransform.Position;
+            this.Sprite.Rotation = collider.internalTransform.Rotation;
+            this.Sprite.scale    = collider.Size;
         }
     }
 }

@@ -108,3 +108,4 @@ E:\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\obj\Debug\BehaviourEn
 E:\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\BehaviourEngine.dll.config
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\Assets\Box2D.png
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\Assets\Circle2D.png
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\Assets\mario.png

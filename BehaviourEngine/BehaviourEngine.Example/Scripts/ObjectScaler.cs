@@ -8,14 +8,21 @@ using OpenTK;
 
 namespace BehaviourEngine.Example
 {
-    public abstract class ObjectScaler : Behaviour, IUpdatable
+    public abstract class ObjectScaler : Behaviour, IStartable, IUpdatable
     {
         protected static ObjectScaler currentTarget;
         protected bool trigger;
+        private Collider2D collider;
+
+        bool IStartable.IsStarted { get; set; }
+        public virtual void Start()
+        {
+            collider = Owner.GetBehaviour<Collider2D>();
+        }
 
         public virtual void Update()
         {
-            if(Input.IsMouseButtonPressed(MouseButton.Right))
+            if (Input.IsMouseButtonPressed(MouseButton.Right))
             {
                 if (IsCursorContained())
                 {
@@ -44,7 +51,10 @@ namespace BehaviourEngine.Example
             }
         }
 
-        protected abstract bool IsCursorContained();
+        private bool IsCursorContained()
+        {
+            return collider.Contains(Input.MousePosition);
+        }
         protected abstract void ChangeScale();
     }
 }
