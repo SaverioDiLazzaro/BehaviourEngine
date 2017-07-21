@@ -146,16 +146,16 @@ namespace BehaviourEngine
 
         private void UpdateChildScale()
         {
-            ////Calculate scale difference between previous and current parent scale
-            //Vector2 parentScaleRatio = new Vector2(Parent.Scale.X / previousParentScale.X, Parent.Scale.Y / previousParentScale.Y);
+            //Calculate scale difference between previous and current parent scale
+            Vector2 parentScaleRatio = new Vector2(Parent.Scale.X / previousParentScale.X, Parent.Scale.Y / previousParentScale.Y);
 
-            ////Vector2 ratio = new Vector2(Parent.scale.X / scale.X, Parent.scale.Y / scale.Y);
-            //scale *= parentScaleRatio;
+            Scale = Scale * parentScaleRatio;
 
-            ////position *= parentScaleRatio;
+            //change position
+            Position = Parent.Position + LocalPosition * parentScaleRatio;
 
             ////save prev parent scale
-            //previousParentScale = Parent.Scale;
+            previousParentScale = Parent.Scale;
         }
 
         private void AddChild(Transform child)
