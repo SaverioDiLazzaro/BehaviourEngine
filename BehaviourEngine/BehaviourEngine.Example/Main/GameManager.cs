@@ -36,7 +36,7 @@ namespace BehaviourEngine.Example
             //});
             circle.AddBehaviour(new PositionRenderer());
             circle.AddBehaviour(new ParentSwitch(box2.Transform));
-
+            circle.GetBehaviour<Collider2D>().CollisionMode = CollisionMode.Trigger;
 
 
             TextureManager.AddTexture("mario", new Texture("Assets/mario.png"));

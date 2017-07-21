@@ -11,6 +11,7 @@ namespace BehaviourEngine
         public override Vector2 Center { get { return (ExtentMin + ExtentMax) * 0.5f; } }
         public Vector2 ExtentMin { get { return internalTransform.Position - Size * 0.5f; } }
         public Vector2 ExtentMax { get { return internalTransform.Position + Size * 0.5f; } }
+        internal Vector2 HalfSize { get { return Size * 0.5f; } }
 
         public BoxCollider2D(Vector2 size) : base()
         {

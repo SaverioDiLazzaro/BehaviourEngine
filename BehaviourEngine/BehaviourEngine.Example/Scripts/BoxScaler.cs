@@ -5,6 +5,8 @@ namespace BehaviourEngine.Example
     public class BoxScaler : ObjectScaler, IStartable
     {
         private BoxCollider2D collider;
+        private float minSize = 1f;
+
         public override void Start()
         {
             base.Start();
@@ -16,7 +18,7 @@ namespace BehaviourEngine.Example
             float ratio = collider.Size.Y / collider.Size.X;
             float distance = Input.MousePosition.X - collider.Center.X;
 
-            float tolerance = MathHelper.Clamp(distance, 1f, distance);
+            float tolerance = MathHelper.Clamp(distance, minSize, distance);
             Vector2 newSize = new Vector2(tolerance, ratio * tolerance);
 
             owner.Transform.Scale = newSize;

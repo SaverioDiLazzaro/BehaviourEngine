@@ -5,6 +5,7 @@ namespace BehaviourEngine.Example
     public class ParentSwitch : Behaviour, IUpdatable
     {
         Transform originalParent;
+        private KeyCode key = KeyCode.P;
 
         public ParentSwitch(Transform parent)
         {
@@ -13,7 +14,7 @@ namespace BehaviourEngine.Example
 
         void IUpdatable.Update()
         {
-            if (Input.IsKeyDown(KeyCode.P))
+            if (Input.IsKeyDown(key))
             {
                 if(this.owner.Transform.Parent == null)
                 {

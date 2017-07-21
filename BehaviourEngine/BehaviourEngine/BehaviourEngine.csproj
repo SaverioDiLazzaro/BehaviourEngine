@@ -57,8 +57,10 @@
     <Compile Include="Physics\BoxCollider2D.cs" />
     <Compile Include="Physics\CircleCollider2D.cs" />
     <Compile Include="Physics\Collider2D.cs" />
+    <Compile Include="Physics\CollisionMode.cs" />
     <Compile Include="Physics\CollisionPair2D.cs" />
     <Compile Include="Physics\CollisionPairState.cs" />
+    <Compile Include="Physics\HitState.cs" />
     <Compile Include="Physics\Rigidbody2D.cs" />
     <Compile Include="Utils\Engine.cs" />
     <Compile Include="Utils\ExtensionMethods.cs" />

@@ -54,54 +54,69 @@ namespace BehaviourEngine
         {
             for (int i = 0; i < collisionPairs.Count; i++)
             {
-                if (collisionPairs[i].PairEnabled)
+                if (collisionPairs[i].IsPairEnabled)
                 {
-                    if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
+                    switch (collisionPairs[i].PairCollisionMode)
                     {
-                        if (this.Intersect(collisionPairs[i].collider1 as BoxCollider2D, collisionPairs[i].collider2 as BoxCollider2D))
-                        {
-                            collisionPairs[i].Trigger(true);
-                        }
-                        else
-                        {
-                            collisionPairs[i].Trigger(false);
-                        }
-                    }
+                        case CollisionMode.Trigger:
+                            if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
+                            {
+                                if (this.Intersect(collisionPairs[i].collider1 as BoxCollider2D, collisionPairs[i].collider2 as BoxCollider2D))
+                                {
+                                    collisionPairs[i].Trigger(true);
+                                }
+                                else
+                                {
+                                    collisionPairs[i].Trigger(false);
+                                }
+                            }
 
-                    else if (collisionPairs[i].collider1 is CircleCollider2D && collisionPairs[i].collider2 is CircleCollider2D)
-                    {
-                        if (this.Intersect(collisionPairs[i].collider1 as CircleCollider2D, collisionPairs[i].collider2 as CircleCollider2D))
-                        {
-                            collisionPairs[i].Trigger(true);
-                        }
-                        else
-                        {
-                            collisionPairs[i].Trigger(false);
-                        }
-                    }
+                            else if (collisionPairs[i].collider1 is CircleCollider2D && collisionPairs[i].collider2 is CircleCollider2D)
+                            {
+                                if (this.Intersect(collisionPairs[i].collider1 as CircleCollider2D, collisionPairs[i].collider2 as CircleCollider2D))
+                                {
+                                    collisionPairs[i].Trigger(true);
+                                }
+                                else
+                                {
+                                    collisionPairs[i].Trigger(false);
+                                }
+                            }
 
-                    else if (collisionPairs[i].collider1 is CircleCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
-                    {
-                        if (this.Intersect(collisionPairs[i].collider1 as CircleCollider2D, collisionPairs[i].collider2 as BoxCollider2D))
-                        {
-                            collisionPairs[i].Trigger(true);
-                        }
-                        else
-                        {
-                            collisionPairs[i].Trigger(false);
-                        }
-                    }
+                            else if (collisionPairs[i].collider1 is CircleCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
+                            {
+                                if (this.Intersect(collisionPairs[i].collider1 as CircleCollider2D, collisionPairs[i].collider2 as BoxCollider2D))
+                                {
+                                    collisionPairs[i].Trigger(true);
+                                }
+                                else
+                                {
+                                    collisionPairs[i].Trigger(false);
+                                }
+                            }
 
-                    else if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is CircleCollider2D)
-                    {
-                        if (this.Intersect(collisionPairs[i].collider2 as CircleCollider2D, collisionPairs[i].collider1 as BoxCollider2D))
-                        {
-                            collisionPairs[i].Trigger(true);
-                        }
-                        else
-                        {
-                            collisionPairs[i].Trigger(false);
-                        }
+                            else if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is CircleCollider2D)
+                            {
+                                if (this.Intersect(collisionPairs[i].collider2 as CircleCollider2D, collisionPairs[i].collider1 as BoxCollider2D))
+                                {
+                                    collisionPairs[i].Trigger(true);
+                                }
+                                else
+                                {
+                                    collisionPairs[i].Trigger(false);
+                                }
+                            }
+
+                            break;
+                        case CollisionMode.Collision:
+                            if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
+                            {
+                                HitState hitState = OnAABB(collisionPairs[i].collider1 as BoxCollider2D, collisionPairs[i].collider2 as BoxCollider2D);
+
+                                //TODO: implement resolution
+                                collisionPairs[i].Collision(hitState);
+                            }
+                            break;
                     }
                 }
             }
@@ -166,6 +181,53 @@ namespace BehaviourEngine
                 return true;
             }
             return false;
+        }
+        #endregion
+
+        #region Algorythms(Collision Detection)
+        public static HitState OnAABB(BoxCollider2D a, BoxCollider2D b)
+        {
+            HitState hitState = new HitState();
+
+            //evaluate x axis
+            float dx = b.Center.X - a.Center.X;
+            //calculate distance along x axis
+            float px = (b.HalfSize.X + a.HalfSize.X) - Math.Abs(dx);    //difference between the sum of radius and the absolute value of dx
+            //check collision on x axis
+            if (px <= 0f)
+            {
+                //no collision
+                return hitState;
+            }
+
+            //evaluate y axis
+            float dy = b.Center.Y - a.Center.Y;
+            //calculate distance along y axis
+            float py = (b.HalfSize.Y + a.HalfSize.Y) - Math.Abs(dy);    //difference between the sum of radius and the absolute value of dy
+            //check collision on y axis
+            if (py <= 0f)
+            {
+                //no collision
+                return hitState;
+            }
+
+            // if code reaches this point, the boxes enter on collision
+            hitState.hit = true;
+
+            if (px < py)
+            {
+                //normal is on x axis
+                int sx = Math.Sign(dx);
+                hitState.normal = new Vector2(-sx, 0f);
+            }
+            else
+            {
+                //normal is on x axis
+                int sy = Math.Sign(dy);
+                hitState.normal = new Vector2(0f, -sy);
+            }
+
+            return hitState;
         }
         #endregion
     }

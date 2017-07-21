@@ -6,17 +6,16 @@ namespace BehaviourEngine
     public class SpriteRenderer : Behaviour, IStartable, IUpdatable, IDrawable
     {
         public Texture Texture;
-        public Sprite Sprite;
+        public Sprite Sprite = new Sprite(1f, 1f)
+        {
+            pivot = Vector2.One * 0.5f
+        };
 
         protected Transform internalTransform;
 
         public SpriteRenderer(Texture texture) : base()
         {
             this.Texture = texture;
-            Sprite = new Sprite(1f, 1f)
-            {
-                pivot = Vector2.One * 0.5f
-            };
         }
 
         bool IStartable.IsStarted { get; set; }
