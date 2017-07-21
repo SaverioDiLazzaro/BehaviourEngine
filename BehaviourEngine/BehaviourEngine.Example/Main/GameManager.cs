@@ -23,7 +23,6 @@ namespace BehaviourEngine.Example
             GameObject box      = new Box(new Vector2(10f, 10f), new Vector2(1f, 1f));
             box.AddBehaviour(new Rotator());
             box.AddBehaviour(new PositionRenderer());
-            box.GetBehaviour<BoxCollider2DRenderer>().Sprite.pivot = Vector2.One * 0.5f;
 
             //Box02
             GameObject box2 = new Box(new Vector2(14f, 10f), new Vector2(3f, 3f));
@@ -35,7 +34,6 @@ namespace BehaviourEngine.Example
                 LeftKey = KeyCode.Left,
                 RightKey = KeyCode.Right
             });
-            box2.GetBehaviour<BoxCollider2DRenderer>().Sprite.pivot = Vector2.One * 0.5f;
 
             //Circle01
             GameObject circle = new Circle(new Vector2(3f, 0f), 2f);
@@ -44,7 +42,8 @@ namespace BehaviourEngine.Example
             //    IsGravityAffected = true
             //});
             circle.AddBehaviour(new PositionRenderer());
-            circle.GetBehaviour<CircleCollider2DRenderer>().Sprite.pivot = Vector2.One * 0.5f;
+            circle.AddBehaviour(new ParentSwitch(box2.Transform));
+
 
 
             TextureManager.AddTexture("mario", new Texture("Assets/mario.png"));

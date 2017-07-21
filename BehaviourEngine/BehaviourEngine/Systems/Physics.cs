@@ -10,7 +10,7 @@ namespace BehaviourEngine
     sealed public class Physics : System<IPhysical>
     {
         public Vector2 Gravity = new Vector2(0f, 9.81f);
-        public float FixedDeltaTime = 0.02f;
+        //public float FixedDeltaTime = 0.02f;
 
         private List<Collider2D> physicalObjects;
         private List<CollisionPair2D> collisionPairs;
@@ -108,7 +108,6 @@ namespace BehaviourEngine
         public override void Add(IEntity physicalObject)
         {
             base.Add(physicalObject);
-
 
             Collider2D collider = physicalObject as Collider2D;
 

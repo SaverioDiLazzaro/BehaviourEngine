@@ -10,6 +10,15 @@ namespace EngineBuilder.Core
         private Queue<T> waitForAddItems = new Queue<T>();
         private Queue<T> waitForRemoveItems = new Queue<T>();
 
+        public T[] GetItems()
+        {
+            T[] array = new T[items.Count];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = items[i];
+            }
+            return array;
+        }
         public virtual void Add(IEntity entity)
         {
             T item = entity as T;
