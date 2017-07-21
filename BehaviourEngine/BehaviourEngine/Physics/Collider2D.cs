@@ -38,16 +38,6 @@ namespace BehaviourEngine
         public virtual void Start()
         {
             internalTransform = Transform.InitInternalTransform(this.Owner);
-            //TODO: duplicated code in spriterenderer
-            internalTransform = new Transform()
-            {
-                Position = Owner.Transform.Position,
-                Rotation = Owner.Transform.Rotation,
-                Scale = Owner.Transform.Scale
-            };
-
-            internalTransform.SetParent(Owner.Transform);
-            Owner.AddBehaviour(internalTransform);
         }
 
         public abstract void PhysicalUpdate();

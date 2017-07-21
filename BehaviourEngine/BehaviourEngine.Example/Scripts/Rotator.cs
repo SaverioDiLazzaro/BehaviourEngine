@@ -18,11 +18,11 @@ namespace BehaviourEngine.Example
         {
             if (Input.IsKeyPressed(LeftKey))
             {
-                Owner.Transform.EulerRotation -= RotationSpeed * Graphics.Instance.Window.deltaTime;
+                Owner.Transform.EulerRotation -= RotationSpeed * Time.DeltaTime;
             }
             if (Input.IsKeyPressed(RightKey))
             {
-                Owner.Transform.EulerRotation += RotationSpeed * Graphics.Instance.Window.deltaTime;
+                Owner.Transform.EulerRotation += RotationSpeed * Time.DeltaTime;
             }
         }
     }
