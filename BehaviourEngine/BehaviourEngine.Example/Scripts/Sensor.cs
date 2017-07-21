@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BehaviourEngine.Example
+﻿namespace BehaviourEngine.Example
 {
     public class Sensor : Behaviour, IStartable
     {
@@ -15,8 +9,8 @@ namespace BehaviourEngine.Example
         bool IStartable.IsStarted { get; set; }
         void IStartable.Start()
         {
-            collider = Owner.GetBehaviour<Collider2D>();
-            renderer = Owner.GetBehaviour<SpriteRenderer>();
+            collider = owner.GetBehaviour<Collider2D>();
+            renderer = owner.GetBehaviour<SpriteRenderer>();
 
             collider.TriggerEnter += OnTriggerEnter;
             collider.TriggerExit  += OnTriggerExit;

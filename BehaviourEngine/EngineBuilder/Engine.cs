@@ -22,6 +22,16 @@ namespace EngineBuilder.Core
             }
         }
 
+        public ISystem[] GetSystems()
+        {
+            ISystem[] array = new ISystem[systems.Count];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = systems[i];
+            }
+            return array;
+        }
+
         public void Add(ISystem system)
         {
             systems.Add(system);

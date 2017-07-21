@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BehaviourEngine;
-using OpenTK;
+﻿using OpenTK;
 
 namespace BehaviourEngine.Example
 {
@@ -14,7 +8,7 @@ namespace BehaviourEngine.Example
         public override void Start()
         {
             base.Start();
-            collider = Owner.GetBehaviour<BoxCollider2D>();
+            collider = owner.GetBehaviour<BoxCollider2D>();
         }
 
         protected override void ChangeScale()
@@ -25,7 +19,8 @@ namespace BehaviourEngine.Example
             float tolerance = MathHelper.Clamp(distance, 1f, distance);
             Vector2 newSize = new Vector2(tolerance, ratio * tolerance);
 
-            Owner.Transform.Scale = newSize;
+            owner.Transform.Scale = newSize;
+            collider.SetSize(newSize);
         }
     }
 }

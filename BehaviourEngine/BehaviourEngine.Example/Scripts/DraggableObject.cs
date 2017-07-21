@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BehaviourEngine;
-using OpenTK;
-
-using EngineBuilder.Shared;
+﻿using OpenTK;
 
 namespace BehaviourEngine.Example
 {
@@ -22,7 +14,7 @@ namespace BehaviourEngine.Example
 
         void IStartable.Start()
         {
-            this.collider = Owner.GetBehaviour<Collider2D>();
+            this.collider = owner.GetBehaviour<Collider2D>();
         }
         void IUpdatable.Update()
         {
@@ -33,7 +25,7 @@ namespace BehaviourEngine.Example
                     if (!isTrigger)
                     {
                         isTrigger = true;
-                        distance = this.Owner.Transform.Position - Input.MousePosition;
+                        distance = this.owner.Transform.Position - Input.MousePosition;
                     }
                 }
 
@@ -45,7 +37,7 @@ namespace BehaviourEngine.Example
                     }
                     if (currentTarget == this)
                     {
-                        this.Owner.Transform.Position = Input.MousePosition + distance;
+                        this.owner.Transform.Position = Input.MousePosition + distance;
                     }
                 }
             }

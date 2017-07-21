@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Aiv.Fast2D;
+﻿using Aiv.Fast2D;
 
 namespace BehaviourEngine
 {
@@ -28,5 +22,4 @@ namespace BehaviourEngine
             this.Add(startSystem, updateSystem, Physics.Instance, Graphics.Instance);
         }
     }
-
 }

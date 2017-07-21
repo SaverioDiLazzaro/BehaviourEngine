@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aiv.Fast2D;
+﻿using System.Collections.Generic;
+
 using OpenTK;
 
 namespace BehaviourEngine
@@ -58,21 +54,6 @@ namespace BehaviourEngine
             }
         }
 
-        internal static Transform InitInternalTransform(GameObject owner)
-        {
-            Transform internalTransform = new Transform()
-            {
-                Position = owner.Transform.Position,
-                Rotation = owner.Transform.Rotation,
-                Scale = owner.Transform.Scale
-            };
-
-            internalTransform.SetParent(owner.Transform);
-            owner.AddBehaviour(internalTransform);
-
-            return internalTransform;
-        }
-
         private float previousParentRotation;
         public float EulerRotation
         {
@@ -111,9 +92,31 @@ namespace BehaviourEngine
         private Vector2 previousParentScale;
         #endregion
 
+        internal static Transform InitInternalTransform(GameObject owner)
+        {
+            Transform internalTransform = new Transform()
+            {
+                Position = owner.Transform.Position,
+                Rotation = owner.Transform.Rotation,
+                Scale = owner.Transform.Scale
+            };
+
+            internalTransform.SetParent(owner.Transform);
+            owner.AddBehaviour(internalTransform);
+
+            return internalTransform;
+        }
         public void SetParent(Transform parent)
         {
-            if (parent != null)
+            if (parent == Parent)
+                return;
+
+            if(Parent != null)
+            {
+                Parent.RemoveChild(this);
+            }
+
+            if(parent != null)
             {
                 parent.AddChild(this);
 
@@ -126,22 +129,26 @@ namespace BehaviourEngine
                 //save previous parent scale
                 previousParentScale = parent.Scale;
             }
-            else
-            {
-                Parent.RemoveChild(this);
-            }
 
-            Parent = parent;
+            this.Parent = parent;
         }
 
         #region Child Handling
         private List<Transform> childs = new List<Transform>();
 
+        public Transform[] GetChilds()
+        {
+            Transform[] array = new Transform[childs.Count];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = childs[i];
+            }
+            return array;
+        }
         private void UpdateChildPosition()
         {
             Position = Parent.Position + LocalPosition;
         }
-
         private void UpdateChildRotation()
         {
             //delta from previous frame to current frame
@@ -158,7 +165,6 @@ namespace BehaviourEngine
             //save prev parent rot
             previousParentRotation = Parent.Rotation;
         }
-
         private void UpdateChildScale()
         {
             //Calculate scale difference between previous and current parent scale
@@ -172,7 +178,6 @@ namespace BehaviourEngine
             ////save prev parent scale
             previousParentScale = Parent.Scale;
         }
-
         private void AddChild(Transform child)
         {
             if (!childs.Contains(child))

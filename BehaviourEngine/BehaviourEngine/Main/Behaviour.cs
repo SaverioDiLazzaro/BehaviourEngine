@@ -1,17 +1,21 @@
-﻿using EngineBuilder;
-using EngineBuilder.Shared;
+﻿using EngineBuilder.Shared;
+
 namespace BehaviourEngine
 {
     public class Behaviour : IEntity
     {
-        public bool Enabled { get { return enabled && Owner.Active; } set { enabled = value; } }
+        public bool Enabled
+        {
+            get { return enabled && owner.Active; }
+            set { enabled = value; }
+        }
         private bool enabled;
 
-        protected GameObject Owner;
+        protected GameObject owner;
 
         internal void SetOwner(GameObject gameObject)
         {
-            Owner = gameObject;
+            owner = gameObject;
         }
     }
 }

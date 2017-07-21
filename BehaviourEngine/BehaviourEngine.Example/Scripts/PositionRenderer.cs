@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aiv.Fast2D;
-using OpenTK;
+﻿using Aiv.Fast2D;
 
 namespace BehaviourEngine.Example
 {
@@ -18,7 +12,7 @@ namespace BehaviourEngine.Example
 
         void IUpdatable.Update()
         {
-            sprite.position = this.Owner.Transform.Position;
+            sprite.position = this.owner.Transform.Position;
         }
 
         int IDrawable.RenderOffset { get; set; }
@@ -26,7 +20,5 @@ namespace BehaviourEngine.Example
         {
             sprite.DrawSolidColor(1f, 0f, 0f);
         }
-
-      
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenTK;
-using System.Diagnostics;
+﻿using OpenTK;
 
 namespace BehaviourEngine
 {
@@ -23,7 +17,7 @@ namespace BehaviourEngine
 
             this.AddForce(-Velocity * LinearFriction);
 
-            Owner.Transform.Position += Velocity * Time.DeltaTime;
+            owner.Transform.Position += Velocity * Time.DeltaTime;
         }
 
         public void AddForce(Vector2 force)

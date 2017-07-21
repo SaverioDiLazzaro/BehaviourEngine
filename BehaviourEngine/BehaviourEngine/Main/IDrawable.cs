@@ -1,5 +1,4 @@
-﻿using EngineBuilder;
-using EngineBuilder.Shared;
+﻿using EngineBuilder.Shared;
 
 namespace BehaviourEngine
 {

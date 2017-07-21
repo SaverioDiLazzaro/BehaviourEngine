@@ -10,15 +10,17 @@ namespace BehaviourEngine
     sealed public class Physics : System<IPhysical>
     {
         public Vector2 Gravity = new Vector2(0f, 9.81f);
+
+        //TODO: implement
         //public float FixedDeltaTime = 0.02f;
 
-        private List<Collider2D> physicalObjects;
+        private List<Collider2D> colliders;
         private List<CollisionPair2D> collisionPairs;
 
         #region Internal Stuff
         internal void Init()
         {
-            physicalObjects = new List<Collider2D>();
+            colliders = new List<Collider2D>();
             collisionPairs = new List<CollisionPair2D>();
         }
         #endregion
@@ -54,9 +56,9 @@ namespace BehaviourEngine
             {
                 if (collisionPairs[i].PairEnabled)
                 {
-                    if (collisionPairs[i].Collider1 is BoxCollider2D && collisionPairs[i].Collider2 is BoxCollider2D)
+                    if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
                     {
-                        if (this.Intersect(collisionPairs[i].Collider1 as BoxCollider2D, collisionPairs[i].Collider2 as BoxCollider2D))
+                        if (this.Intersect(collisionPairs[i].collider1 as BoxCollider2D, collisionPairs[i].collider2 as BoxCollider2D))
                         {
                             collisionPairs[i].Trigger(true);
                         }
@@ -66,9 +68,9 @@ namespace BehaviourEngine
                         }
                     }
 
-                    else if (collisionPairs[i].Collider1 is CircleCollider2D && collisionPairs[i].Collider2 is CircleCollider2D)
+                    else if (collisionPairs[i].collider1 is CircleCollider2D && collisionPairs[i].collider2 is CircleCollider2D)
                     {
-                        if (this.Intersect(collisionPairs[i].Collider1 as CircleCollider2D, collisionPairs[i].Collider2 as CircleCollider2D))
+                        if (this.Intersect(collisionPairs[i].collider1 as CircleCollider2D, collisionPairs[i].collider2 as CircleCollider2D))
                         {
                             collisionPairs[i].Trigger(true);
                         }
@@ -78,9 +80,9 @@ namespace BehaviourEngine
                         }
                     }
 
-                    else if (collisionPairs[i].Collider1 is CircleCollider2D && collisionPairs[i].Collider2 is BoxCollider2D)
+                    else if (collisionPairs[i].collider1 is CircleCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
                     {
-                        if (this.Intersect(collisionPairs[i].Collider1 as CircleCollider2D, collisionPairs[i].Collider2 as BoxCollider2D))
+                        if (this.Intersect(collisionPairs[i].collider1 as CircleCollider2D, collisionPairs[i].collider2 as BoxCollider2D))
                         {
                             collisionPairs[i].Trigger(true);
                         }
@@ -90,9 +92,9 @@ namespace BehaviourEngine
                         }
                     }
 
-                    else if (collisionPairs[i].Collider1 is BoxCollider2D && collisionPairs[i].Collider2 is CircleCollider2D)
+                    else if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is CircleCollider2D)
                     {
-                        if (this.Intersect(collisionPairs[i].Collider2 as CircleCollider2D, collisionPairs[i].Collider1 as BoxCollider2D))
+                        if (this.Intersect(collisionPairs[i].collider2 as CircleCollider2D, collisionPairs[i].collider1 as BoxCollider2D))
                         {
                             collisionPairs[i].Trigger(true);
                         }
@@ -113,15 +115,15 @@ namespace BehaviourEngine
 
             if (collider != null)
             {
-                if (physicalObjects.Count > 0)
+                if (colliders.Count > 0)
                 {
-                    for (int i = 0; i < physicalObjects.Count; i++)
+                    for (int i = 0; i < colliders.Count; i++)
                     {
-                        collisionPairs.Add(new CollisionPair2D(collider, physicalObjects[i]));
+                        collisionPairs.Add(new CollisionPair2D(collider, colliders[i]));
                     }
                 }
 
-                physicalObjects.Add(collider);
+                colliders.Add(collider);
             }
         }
         #endregion

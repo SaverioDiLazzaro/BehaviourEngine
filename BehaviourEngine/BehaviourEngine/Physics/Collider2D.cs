@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenTK;
+﻿using OpenTK;
 
 namespace BehaviourEngine
 {
@@ -16,30 +11,29 @@ namespace BehaviourEngine
 
         internal Transform internalTransform;
 
+        public abstract Vector2 Center { get; }
+
         internal void Trigger(Collider2D other, CollisionPairState state)
         {
-            if (state.Enter)
+            if (state.enter)
             {
                 TriggerEnter?.Invoke(other);
             }
-            if (state.Stay)
+            if (state.stay)
             {
                 TriggerStay?.Invoke(other);
             }
-            if (state.Exit)
+            if (state.exit)
             {
                 TriggerExit?.Invoke(other);
             }
         }
-
         public abstract bool Contains(Vector2 point);
-
         bool IStartable.IsStarted { get; set; }
         public virtual void Start()
         {
-            internalTransform = Transform.InitInternalTransform(this.Owner);
+            internalTransform = Transform.InitInternalTransform(this.owner);
         }
-
         public abstract void PhysicalUpdate();
     }
 }

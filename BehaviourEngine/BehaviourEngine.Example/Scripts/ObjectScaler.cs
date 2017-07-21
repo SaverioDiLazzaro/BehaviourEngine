@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BehaviourEngine;
-using OpenTK;
-
-namespace BehaviourEngine.Example
+﻿namespace BehaviourEngine.Example
 {
     public abstract class ObjectScaler : Behaviour, IStartable, IUpdatable
     {
@@ -17,7 +9,7 @@ namespace BehaviourEngine.Example
         bool IStartable.IsStarted { get; set; }
         public virtual void Start()
         {
-            collider = Owner.GetBehaviour<Collider2D>();
+            collider = owner.GetBehaviour<Collider2D>();
         }
 
         public virtual void Update()

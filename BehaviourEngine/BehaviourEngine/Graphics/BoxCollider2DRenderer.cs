@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Aiv.Fast2D;
-using OpenTK;
-
-using EngineBuilder.Shared;
+﻿using Aiv.Fast2D;
 
 namespace BehaviourEngine
 {
-    public class BoxCollider2DRenderer : SpriteRenderer
+    public class BoxCollider2DRenderer : SpriteRenderer, IStartable
     {
         BoxCollider2D collider;
         static BoxCollider2DRenderer()
         {
+            //TODO: change with Segment
             TextureManager.AddTexture("Box2D", new Texture("Assets/Box2D.png"));
         }
         public BoxCollider2DRenderer() : base(TextureManager.GetTexture("Box2D")) { }
-        public override void Start()
+        void IStartable.Start()
         {
             base.Start();
-            collider = this.Owner.GetBehaviour<BoxCollider2D>();
+            collider = this.owner.GetBehaviour<BoxCollider2D>();
         }
         public override void Update()
         {

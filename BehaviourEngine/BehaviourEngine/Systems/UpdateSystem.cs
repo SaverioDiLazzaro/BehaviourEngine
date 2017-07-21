@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-using EngineBuilder.Core;
+﻿using EngineBuilder.Core;
 
 namespace BehaviourEngine
 {

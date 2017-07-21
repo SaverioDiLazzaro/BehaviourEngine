@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aiv.Fast2D;
+﻿using Aiv.Fast2D;
 using OpenTK;
 
 namespace BehaviourEngine
@@ -18,14 +13,16 @@ namespace BehaviourEngine
         public SpriteRenderer(Texture texture) : base()
         {
             this.Texture = texture;
-            Sprite = new Sprite(1f, 1f);
-            Sprite.pivot = Vector2.One * 0.5f;
+            Sprite = new Sprite(1f, 1f)
+            {
+                pivot = Vector2.One * 0.5f
+            };
         }
 
         bool IStartable.IsStarted { get; set; }
         public virtual void Start()
         {
-            internalTransform = Transform.InitInternalTransform(this.Owner);
+            internalTransform = Transform.InitInternalTransform(this.owner);
         }
 
         public virtual void Update()
@@ -36,7 +33,7 @@ namespace BehaviourEngine
         }
 
         public int RenderOffset { get; set; }
-        void IDrawable.Draw()
+        public virtual void Draw()
         {
             Sprite.DrawTexture(Texture);
         }

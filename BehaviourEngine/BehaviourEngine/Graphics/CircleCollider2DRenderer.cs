@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Aiv.Fast2D;
+﻿using Aiv.Fast2D;
 using OpenTK;
-
-using EngineBuilder.Shared;
 
 namespace BehaviourEngine
 {
@@ -16,14 +8,15 @@ namespace BehaviourEngine
         CircleCollider2D collider;
         static CircleCollider2DRenderer()
         {
+            //Change with algorythm
             TextureManager.AddTexture("Circle2D", new Texture("Assets/Circle2D.png"));
         }
         public CircleCollider2DRenderer() : base(TextureManager.GetTexture("Circle2D")) { }
 
-        bool IStartable.IsStarted { get; set; }
         void IStartable.Start()
         {
-            collider = this.Owner.GetBehaviour<CircleCollider2D>();
+            base.Start();
+            collider = this.owner.GetBehaviour<CircleCollider2D>();
         }
 
         public override void Update()

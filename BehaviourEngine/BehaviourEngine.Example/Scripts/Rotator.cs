@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Aiv.Fast2D;
+﻿using Aiv.Fast2D;
 
 namespace BehaviourEngine.Example
 {
@@ -18,11 +12,11 @@ namespace BehaviourEngine.Example
         {
             if (Input.IsKeyPressed(LeftKey))
             {
-                Owner.Transform.EulerRotation -= RotationSpeed * Time.DeltaTime;
+                owner.Transform.EulerRotation -= RotationSpeed * Time.DeltaTime;
             }
             if (Input.IsKeyPressed(RightKey))
             {
-                Owner.Transform.EulerRotation += RotationSpeed * Time.DeltaTime;
+                owner.Transform.EulerRotation += RotationSpeed * Time.DeltaTime;
             }
         }
     }
