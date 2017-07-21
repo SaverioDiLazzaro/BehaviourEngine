@@ -25,16 +25,7 @@ namespace BehaviourEngine
         bool IStartable.IsStarted { get; set; }
         public virtual void Start()
         {
-            //TODO: duplicated code in boxcollider2d
-            internalTransform = new Transform()
-            {
-                Position = Owner.Transform.Position,
-                Rotation = Owner.Transform.Rotation,
-                Scale = Owner.Transform.Scale
-            };
-
-            internalTransform.SetParent(Owner.Transform);
-            Owner.AddBehaviour(internalTransform);
+            internalTransform = Transform.InitInternalTransform(this.Owner);
         }
 
         public virtual void Update()

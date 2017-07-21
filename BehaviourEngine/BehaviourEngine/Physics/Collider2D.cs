@@ -37,6 +37,7 @@ namespace BehaviourEngine
         bool IStartable.IsStarted { get; set; }
         public virtual void Start()
         {
+            internalTransform = Transform.InitInternalTransform(this.Owner);
             //TODO: duplicated code in spriterenderer
             internalTransform = new Transform()
             {
