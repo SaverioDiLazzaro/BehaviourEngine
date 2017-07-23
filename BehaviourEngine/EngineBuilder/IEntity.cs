@@ -1,4 +1,4 @@
-﻿namespace EngineBuilder.Shared
+﻿namespace EngineBuilder
 {
     public interface IEntity
     {

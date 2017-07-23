@@ -2,7 +2,7 @@
 
 namespace BehaviourEngine
 {
-    internal class BehaviourEngine : EngineBuilder.Core.Engine
+    internal class BehaviourEngine : EngineBuilder.Engine
     {
         public override bool IsRunning
         {

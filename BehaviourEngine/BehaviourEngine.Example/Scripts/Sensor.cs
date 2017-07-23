@@ -4,6 +4,7 @@
     {
         private Collider2D collider;
         private SpriteRenderer renderer;
+
         private int triggerCount;
         private int collisionCount;
 

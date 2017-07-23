@@ -1,7 +1,7 @@
 ﻿using Aiv.Fast2D;
 using System.Linq;
 
-using EngineBuilder.Core;
+using EngineBuilder;
 
 namespace BehaviourEngine
 {
@@ -13,6 +13,8 @@ namespace BehaviourEngine
         internal void Init(Window window)
         {
             Window = window;
+
+            sortingMode = SortingMode.Always;
         }
         #endregion
 
@@ -43,8 +45,19 @@ namespace BehaviourEngine
 
         protected override void SortItems()
         {
-            //TODO: too heavy
-            items.OrderByDescending(item => item.RenderOffset);
+            //orderbydescending
+            for (int i = 0; i < items.Count - 1; i++)
+            {
+                for (int j = i + 1; j < items.Count; j++)
+                {
+                    if (items[i].RenderOffset < items[j].RenderOffset)
+                    {
+                        IDrawable temp = items[i];
+                        items[i] = items[j];
+                        items[j] = temp;
+                    }
+                }
+            }
         }
         #endregion
     }

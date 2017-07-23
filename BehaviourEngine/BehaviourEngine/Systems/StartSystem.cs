@@ -1,4 +1,4 @@
-﻿using EngineBuilder.Core;
+﻿using EngineBuilder;
 
 namespace BehaviourEngine
 {

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using EngineBuilder.Shared;
 
-namespace EngineBuilder.Core
+namespace EngineBuilder
 {
     public abstract class System<T> : ISystem
         where T : class, IEntity
@@ -9,6 +8,13 @@ namespace EngineBuilder.Core
         protected List<T> items = new List<T>();
         private Queue<T> waitForAddItems = new Queue<T>();
         private Queue<T> waitForRemoveItems = new Queue<T>();
+
+        protected enum SortingMode
+        {
+            AfterAddOnly,
+            Always
+        }
+        protected SortingMode sortingMode = SortingMode.AfterAddOnly;
 
         public T[] GetItems()
         {
@@ -46,12 +52,20 @@ namespace EngineBuilder.Core
                     items.Add(waitForAddItems.Dequeue());
                 }
 
+                if(count > 0 && sortingMode == SortingMode.AfterAddOnly)
+                {
+                    SortItems();
+                }
+
                 count = waitForRemoveItems.Count;
                 for (int i = 0; i < count; i++)
                 {
                     items.Remove(waitForRemoveItems.Dequeue());
                 }
+            }
 
+            if(sortingMode == SortingMode.Always)
+            {
                 SortItems();
             }
         }

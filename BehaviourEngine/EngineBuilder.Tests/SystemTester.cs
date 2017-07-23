@@ -1,8 +1,5 @@
 ﻿using NUnit.Framework;
 
-using EngineBuilder.Core;
-using EngineBuilder.Shared;
-
 namespace EngineBuilder.Tests
 {
     #region Test Items

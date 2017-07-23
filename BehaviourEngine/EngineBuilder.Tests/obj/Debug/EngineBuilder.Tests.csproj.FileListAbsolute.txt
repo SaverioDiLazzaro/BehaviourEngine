@@ -3,10 +3,6 @@ C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Te
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.pdb
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.exe
 C:\Users\saver\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.pdb
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.pdb
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.pdb
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\nunit.framework.dll
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\nunit.framework.xml
 F:\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.exe.config
 F:\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.exe
 F:\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.pdb
@@ -25,9 +21,11 @@ C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder.Tests\
 C:\Users\Savo\Desktop\BehaviourEngine (NEW)\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.pdb
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.dll.config
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.dll
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Core.dll
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Shared.dll
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Shared.pdb
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Core.pdb
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.Tests.pdb
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.dll
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\EngineBuilder.pdb
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\bin\Debug\nunit.framework.xml
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.dll
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder.Tests\obj\Debug\EngineBuilder.Tests.pdb

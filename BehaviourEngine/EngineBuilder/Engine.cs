@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using EngineBuilder.Shared;
 using System.Linq;
 
-namespace EngineBuilder.Core
+namespace EngineBuilder
 {
     public abstract class Engine
     {
@@ -73,8 +72,19 @@ namespace EngineBuilder.Core
 
         protected void SortSystems()
         {
-            //TODO: too heavy
-            systems.OrderByDescending(item => item.UpdateOffset);
+            //orderbydescending
+            for (int i = 0; i < systems.Count - 1; i++)
+            {
+                for (int j = i + 1; j < systems.Count; j++)
+                {
+                    if (systems[i].UpdateOffset < systems[j].UpdateOffset)
+                    {
+                        ISystem temp = systems[i];
+                        systems[i] = systems[j];
+                        systems[j] = temp;
+                    }
+                }
+            }
         }
     }
 }
