@@ -49,8 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SharedFiles\TestEntityB.cs" />
+    <Compile Include="SharedFiles\ITestEntityB.cs" />
+    <Compile Include="SharedFiles\ITestEntityA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemTester.cs" />
+    <Compile Include="SharedFiles\TestEntityA.cs" />
+    <Compile Include="SharedFiles\TestSystemB.cs" />
+    <Compile Include="SharedFiles\TestSystemA.cs" />
+    <Compile Include="TestClasses\EngineTester.cs" />
+    <Compile Include="SharedFiles\TestEngine.cs" />
+    <Compile Include="TestClasses\SystemTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

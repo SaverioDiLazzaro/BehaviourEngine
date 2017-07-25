@@ -26,4 +26,3 @@ C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.T
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\bin\Debug\nunit.framework.xml
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\obj\Debug\BehaviourEngine.Tests.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\obj\Debug\BehaviourEngine.Tests.pdb
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Tests\obj\Debug\BehaviourEngine.Tests.csprojResolveAssemblyReference.cache

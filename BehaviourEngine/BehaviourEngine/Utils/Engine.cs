@@ -13,17 +13,17 @@ namespace BehaviourEngine
         {
             engine.Init(window);
         }
-        public static void Add(Behaviour behaviour)
-        {
-            engine.Add(behaviour);
-        }
-        public static void Remove(Behaviour behaviour)
-        {
-            engine.Remove(behaviour);
-        }
         public static void Run()
         {
             engine.Run();
+        }
+        internal static void Add(Behaviour behaviour)
+        {
+            engine.Add(behaviour);
+        }
+        internal static void Remove(Behaviour behaviour)
+        {
+            engine.Remove(behaviour);
         }
     }
 }

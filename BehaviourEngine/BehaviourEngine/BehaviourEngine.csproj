@@ -54,6 +54,7 @@
     <Compile Include="Graphics\CircleCollider2DRenderer.cs" />
     <Compile Include="Graphics\BoxCollider2DRenderer.cs" />
     <Compile Include="Graphics\SpriteRenderer.cs" />
+    <Compile Include="Graphics\LineRenderer.cs" />
     <Compile Include="Physics\BoxCollider2D.cs" />
     <Compile Include="Physics\CircleCollider2D.cs" />
     <Compile Include="Physics\Collider2D.cs" />

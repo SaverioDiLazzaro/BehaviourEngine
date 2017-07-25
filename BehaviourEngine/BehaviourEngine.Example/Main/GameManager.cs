@@ -13,7 +13,7 @@ namespace BehaviourEngine.Example
             Engine.Init(window);
 
             //Box01
-            GameObject box      = new Box(new Vector2(10f, 10f), new Vector2(1f, 1f));
+            GameObject box = new Box(new Vector2(10f, 10f), new Vector2(1f, 1f));
             box.AddBehaviour(new Rotator());
             box.AddBehaviour(new PositionRenderer());
 
@@ -41,6 +41,20 @@ namespace BehaviourEngine.Example
 
             TextureManager.AddTexture("mario", new Texture("Assets/mario.png"));
             box.AddBehaviour(new SpriteRenderer(TextureManager.GetTexture("mario")));
+
+
+            //GameObject x = new GameObject();
+            //LineRenderer line = new LineRenderer(1f, 1f, 2f, 2f, 1f / Graphics.Instance.Window.CurrentOrthoGraphicSize)
+            //{
+            //    Color = new Vector4(0f, 1f, 0f, 1f)
+            //};
+            //x.AddBehaviour(line);
+            //GameObject.Spawn(x);
+
+            for (int i = 0; i < int.MaxValue; i++)
+            {
+                GameObject.Spawn(box);
+            }
         }
 
         public static void Update()

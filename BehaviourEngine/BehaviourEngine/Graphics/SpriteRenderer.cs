@@ -26,9 +26,9 @@ namespace BehaviourEngine
 
         public virtual void Update()
         {
-            Sprite.position = internalTransform.Position;
-            Sprite.Rotation = internalTransform.Rotation;
-            Sprite.scale    = internalTransform.Scale;
+            this.Sprite.position = internalTransform.Position;
+            this.Sprite.Rotation = internalTransform.Rotation;
+            this.Sprite.scale    = internalTransform.Scale;
         }
 
         public int RenderOffset { get; set; }

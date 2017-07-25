@@ -13,8 +13,6 @@ namespace BehaviourEngine
         internal void Init(Window window)
         {
             Window = window;
-
-            sortingMode = SortingMode.Always;
         }
         #endregion
 
@@ -32,6 +30,8 @@ namespace BehaviourEngine
         {
             base.Update();
 
+            this.SortItems();
+
             for (int i = 0; i < items.Count; i++)
             {
                 if (items[i].Enabled)
@@ -43,7 +43,7 @@ namespace BehaviourEngine
             Window.Update();
         }
 
-        protected override void SortItems()
+        private void SortItems()
         {
             //orderbydescending
             for (int i = 0; i < items.Count - 1; i++)

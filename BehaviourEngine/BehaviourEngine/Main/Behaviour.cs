@@ -2,7 +2,7 @@
 
 namespace BehaviourEngine
 {
-    public class Behaviour : IEntity
+    public abstract class Behaviour : IEntity
     {
         public bool Enabled
         {

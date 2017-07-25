@@ -1,24 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace EngineBuilder
+namespace EngineBuilder.Tests
 {
-    public abstract class Engine
+    //duplicated class due to while loop
+    public class TestEngine /*: Engine*/
     {
-        public abstract bool IsRunning { get; set; }
+        public bool IsRunning { get; set; }
 
-        protected List<ISystem> systems = new List<ISystem>();
-
-        private Queue<IEntity> waitForAddEntities = new Queue<IEntity>();
-        private Queue<IEntity> waitForRemoveEntities = new Queue<IEntity>();
+        public void Init(params ISystem[] systems)
+        {
+            for (int i = 0; i < systems.Length; i++)
+            {
+                this.Add(systems[i]);
+            }
+        }
 
         public void Run()
         {
             this.IsRunning = true;
             this.SortSystems();
 
-            while (IsRunning)
+            //one step instead of "while (IsRunning)"
+            if (IsRunning)
             {
                 this.DeferredAddOrRemoveEntities();
 
@@ -28,6 +35,12 @@ namespace EngineBuilder
                 }
             }
         }
+
+        #region code duplicated without while loop
+        protected List<ISystem> systems = new List<ISystem>();
+
+        private Queue<IEntity> waitForAddEntities = new Queue<IEntity>();
+        private Queue<IEntity> waitForRemoveEntities = new Queue<IEntity>();
 
         public ISystem[] DebugSystems()
         {
@@ -125,5 +138,7 @@ namespace EngineBuilder
                 }
             }
         }
+
+        #endregion
     }
 }
