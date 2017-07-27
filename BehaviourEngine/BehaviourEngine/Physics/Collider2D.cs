@@ -8,7 +8,7 @@ namespace BehaviourEngine
         public CollisionMode CollisionMode = CollisionMode.Collision;
 
         internal Transform internalTransform;
-        //internal Rigidbody2D rigidbody; //TODO: use for sweep test
+        internal Rigidbody2D rigidbody;
 
         public abstract Vector2 Center { get; }
 
@@ -16,7 +16,8 @@ namespace BehaviourEngine
         bool IStartable.IsStarted { get; set; }
         public virtual void Start()
         {
-            internalTransform = Transform.InitInternalTransform(this.owner);
+            internalTransform = Transform.InitInternalTransform(this.Owner);
+            rigidbody = Owner.GetBehaviour<Rigidbody2D>();
         }
         public abstract void PhysicalUpdate();
 
@@ -51,7 +52,6 @@ namespace BehaviourEngine
         {
             if (state.enter)
             {
-                //TODO: implement resolution
                 CollisionEnter?.Invoke(other, hitState);
             }
             if (state.stay)

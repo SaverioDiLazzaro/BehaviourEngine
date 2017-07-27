@@ -10,7 +10,7 @@ namespace BehaviourEngine.Example
         public override void Start()
         {
             base.Start();
-            collider = owner.GetBehaviour<BoxCollider2D>();
+            collider = Owner.GetBehaviour<BoxCollider2D>();
         }
 
         protected override void ChangeScale()
@@ -21,7 +21,7 @@ namespace BehaviourEngine.Example
             float tolerance = MathHelper.Clamp(distance, minSize, distance);
             Vector2 newSize = new Vector2(tolerance, ratio * tolerance);
 
-            owner.Transform.Scale = newSize;
+            Owner.Transform.Scale = newSize;
             collider.SetSize(newSize);
         }
     }

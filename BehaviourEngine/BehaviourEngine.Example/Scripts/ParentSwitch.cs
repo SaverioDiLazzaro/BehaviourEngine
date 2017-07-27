@@ -16,13 +16,13 @@ namespace BehaviourEngine.Example
         {
             if (Input.IsKeyDown(key))
             {
-                if(this.owner.Transform.Parent == null)
+                if(this.Owner.Transform.Parent == null)
                 {
-                    this.owner.Transform.SetParent(originalParent);
+                    this.Owner.Transform.SetParent(originalParent);
                 }
                 else
                 {
-                    this.owner.Transform.SetParent(null);
+                    this.Owner.Transform.SetParent(null);
                 }
             }
 

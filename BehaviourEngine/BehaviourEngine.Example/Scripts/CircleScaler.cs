@@ -10,14 +10,14 @@ namespace BehaviourEngine.Example
         public override void Start()
         {
             base.Start();
-            collider = owner.GetBehaviour<CircleCollider2D>();
+            collider = Owner.GetBehaviour<CircleCollider2D>();
         }
 
         protected override void ChangeScale()
         {
             float newRadius = MathHelper.Clamp((collider.Center - Input.MousePosition).Length, minSize, (collider.Center - Input.MousePosition).Length);
 
-            owner.Transform.Scale = Vector2.One * newRadius;
+            Owner.Transform.Scale = Vector2.One * newRadius;
             collider.SetRadius(newRadius);
         }
     }

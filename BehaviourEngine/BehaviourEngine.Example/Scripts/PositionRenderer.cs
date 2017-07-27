@@ -12,7 +12,7 @@ namespace BehaviourEngine.Example
 
         void IUpdatable.Update()
         {
-            sprite.position = this.owner.Transform.Position;
+            sprite.position = this.Owner.Transform.Position;
         }
 
         int IDrawable.RenderOffset { get; set; }

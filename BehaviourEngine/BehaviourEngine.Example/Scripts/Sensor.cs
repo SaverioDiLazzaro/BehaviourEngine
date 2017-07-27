@@ -11,8 +11,8 @@
         bool IStartable.IsStarted { get; set; }
         void IStartable.Start()
         {
-            collider = owner.GetBehaviour<Collider2D>();
-            renderer = owner.GetBehaviour<SpriteRenderer>();
+            collider = Owner.GetBehaviour<Collider2D>();
+            renderer = Owner.GetBehaviour<SpriteRenderer>();
 
             collider.TriggerEnter += OnTriggerEnter;
             collider.TriggerExit  += OnTriggerExit;

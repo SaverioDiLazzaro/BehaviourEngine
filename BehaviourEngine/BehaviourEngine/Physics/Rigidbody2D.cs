@@ -5,7 +5,7 @@ namespace BehaviourEngine
     public class Rigidbody2D : Behaviour, IPhysical
     {
         public Vector2 Velocity;
-        public bool IsGravityAffected;
+        public bool IsGravityAffected = true;
         public float LinearFriction;
 
         void IPhysical.PhysicalUpdate()
@@ -17,7 +17,7 @@ namespace BehaviourEngine
 
             this.AddForce(-Velocity * LinearFriction);
 
-            owner.Transform.Position += Velocity * Time.DeltaTime;
+            Owner.Transform.Position += Velocity * Time.DeltaTime;
         }
 
         public void AddForce(Vector2 force)

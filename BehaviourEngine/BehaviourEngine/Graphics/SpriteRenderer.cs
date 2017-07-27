@@ -21,7 +21,7 @@ namespace BehaviourEngine
         bool IStartable.IsStarted { get; set; }
         public virtual void Start()
         {
-            internalTransform = Transform.InitInternalTransform(this.owner);
+            internalTransform = Transform.InitInternalTransform(this.Owner);
         }
 
         public virtual void Update()

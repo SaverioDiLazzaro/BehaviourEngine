@@ -9,7 +9,7 @@
         bool IStartable.IsStarted { get; set; }
         public virtual void Start()
         {
-            collider = owner.GetBehaviour<Collider2D>();
+            collider = Owner.GetBehaviour<Collider2D>();
         }
 
         public virtual void Update()

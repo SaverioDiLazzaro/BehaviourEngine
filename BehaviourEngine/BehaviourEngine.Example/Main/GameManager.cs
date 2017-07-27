@@ -13,9 +13,10 @@ namespace BehaviourEngine.Example
             Engine.Init(window);
 
             //Box01
-            GameObject box = new Box(new Vector2(10f, 10f), new Vector2(1f, 1f));
+            GameObject box = new Box(new Vector2(10f, 0.5f), new Vector2(1f, 1f));
             box.AddBehaviour(new Rotator());
             box.AddBehaviour(new PositionRenderer());
+            box.AddBehaviour(new Rigidbody2D());
 
             //Box02
             GameObject box2 = new Box(new Vector2(14f, 10f), new Vector2(3f, 3f));
@@ -28,12 +29,13 @@ namespace BehaviourEngine.Example
                 RightKey = KeyCode.Right
             });
 
+            GameObject boxGround = new Box(new Vector2(10f, 20f), new Vector2(10f, 10f));
+            boxGround.AddBehaviour(new PositionRenderer());
+
             //Circle01
             GameObject circle = new Circle(new Vector2(3f, 0f), 2f);
-            //circle.AddBehaviour(new Rigidbody2D()
-            //{
-            //    IsGravityAffected = true
-            //});
+            //circle.AddBehaviour(new Rigidbody2D());
+
             circle.AddBehaviour(new PositionRenderer());
             circle.AddBehaviour(new ParentSwitch(box2.Transform));
             circle.GetBehaviour<Collider2D>().CollisionMode = CollisionMode.Trigger;
@@ -50,11 +52,6 @@ namespace BehaviourEngine.Example
             //};
             //x.AddBehaviour(line);
             //GameObject.Spawn(x);
-
-            for (int i = 0; i < int.MaxValue; i++)
-            {
-                GameObject.Spawn(box);
-            }
         }
 
         public static void Update()

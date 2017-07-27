@@ -16,7 +16,7 @@ namespace BehaviourEngine
         void IStartable.Start()
         {
             base.Start();
-            collider = this.owner.GetBehaviour<CircleCollider2D>();
+            collider = this.Owner.GetBehaviour<CircleCollider2D>();
         }
 
         public override void Update()

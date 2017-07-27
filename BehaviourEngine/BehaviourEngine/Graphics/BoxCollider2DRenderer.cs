@@ -58,7 +58,7 @@ namespace BehaviourEngine
         void IStartable.Start()
         {
             base.Start();
-            collider = this.owner.GetBehaviour<BoxCollider2D>();
+            collider = this.Owner.GetBehaviour<BoxCollider2D>();
         }
         public override void Update()
         {

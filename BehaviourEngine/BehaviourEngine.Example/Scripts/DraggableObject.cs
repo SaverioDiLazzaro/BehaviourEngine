@@ -14,7 +14,7 @@ namespace BehaviourEngine.Example
 
         void IStartable.Start()
         {
-            this.collider = owner.GetBehaviour<Collider2D>();
+            this.collider = Owner.GetBehaviour<Collider2D>();
         }
         void IUpdatable.Update()
         {
@@ -25,7 +25,7 @@ namespace BehaviourEngine.Example
                     if (!isTrigger)
                     {
                         isTrigger = true;
-                        distance = this.owner.Transform.Position - Input.MousePosition;
+                        distance = this.Owner.Transform.Position - Input.MousePosition;
                     }
                 }
 
@@ -37,7 +37,7 @@ namespace BehaviourEngine.Example
                     }
                     if (currentTarget == this)
                     {
-                        this.owner.Transform.Position = Input.MousePosition + distance;
+                        this.Owner.Transform.Position = Input.MousePosition + distance;
                     }
                 }
             }
