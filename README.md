@@ -1,5 +1,5 @@
 # BehaviourEngine
-2D Component-Based Engine for Realtime Applications
+Component-Based 2D Engine for Realtime Applications
 
 # Project Overview:
 + Written in C#
