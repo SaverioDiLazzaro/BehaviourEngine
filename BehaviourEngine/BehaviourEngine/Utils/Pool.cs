@@ -18,7 +18,9 @@ namespace BehaviourEngine
 
             instances = new Queue<T>(preallocations);
             for (int i = 0; i < preallocations; i++)
+            {
                 instances.Enqueue(allocator.Invoke());
+            }
 
             Pool<T>.allocator = allocator;
         }

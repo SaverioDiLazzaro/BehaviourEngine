@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using OpenTK;
 
@@ -9,7 +10,7 @@ namespace BehaviourEngine
         public Transform Transform;
         public bool Active;
 
-        internal bool isSpawned;
+        public bool IsSpawned { get; private set; }
 
         private List<Behaviour> behaviours;
 
@@ -25,7 +26,7 @@ namespace BehaviourEngine
             behaviour.SetOwner(this);
             this.behaviours.Add(behaviour);
 
-            if (this.isSpawned)
+            if (this.IsSpawned)
             {
                 Engine.Add(behaviour);
             }
@@ -54,7 +55,6 @@ namespace BehaviourEngine
             }
             return array;
         }
-
         public static GameObject Spawn(GameObject gameObject)
         {
             return gameObject.Spawn();
@@ -74,7 +74,7 @@ namespace BehaviourEngine
         }
         private GameObject Spawn()
         {
-            this.isSpawned = true;
+            this.IsSpawned = true;
             this.Active = true;
 
             for (int i = 0; i < behaviours.Count; i++)

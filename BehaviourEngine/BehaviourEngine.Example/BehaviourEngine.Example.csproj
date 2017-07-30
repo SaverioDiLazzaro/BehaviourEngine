@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0CC5EC6C-16DE-4CE5-9831-613D7E83AD39}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BehaviourEngine.Example</RootNamespace>
+    <AssemblyName>BehaviourEngine.Example</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="aiv-fast2d, Version=1.0.6336.29264, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aiv.Fast2D.0.13.0\lib\net40\aiv-fast2d.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.1\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main\Game.cs" />
+    <Compile Include="Main\Program.cs" />
+    <Compile Include="Prefabs\Zombie.cs" />
+    <Compile Include="Scripts\Debug\DiagnosticTool.cs" />
+    <Compile Include="Scripts\ObjectPooling\RecycleWhenOutOfScreen.cs" />
+    <Compile Include="Prefabs\Bullet.cs" />
+    <Compile Include="Scripts\UnitSpawner\SpawnPoint.cs" />
+    <Compile Include="Scripts\UnitSpawner\StateWaitForSpawn.cs" />
+    <Compile Include="Scripts\Utils\Screen.cs" />
+    <Compile Include="Prefabs\Wall.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Hero\FlipAtMousePosition.cs" />
+    <Compile Include="Scripts\Hero\Jump.cs" />
+    <Compile Include="Scripts\Enums\RenderLayer.cs" />
+    <Compile Include="Scripts\Hero\Move.cs" />
+    <Compile Include="Scripts\Hero\Sensor.cs" />
+    <Compile Include="Scripts\Hero\Shoot.cs" />
+    <Compile Include="Scripts\Debug\PositionRenderer.cs" />
+    <Compile Include="Scripts\Zombie\StateMove.cs" />
+    <Compile Include="Prefabs\ZombieSpawner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\BgMusic.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Background.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Bullet.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Gun.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Hero.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Platforms.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Zombie.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BehaviourEngine\BehaviourEngine.csproj">
+      <Project>{7d5df43b-9681-4c50-a28d-c2d6a5476ca8}</Project>
+      <Name>BehaviourEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EngineBuilder\EngineBuilder.csproj">
+      <Project>{07f1db04-9626-4dfa-9d95-72c476b8b5ef}</Project>
+      <Name>EngineBuilder</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

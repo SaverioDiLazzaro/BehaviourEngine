@@ -36,7 +36,8 @@ namespace BehaviourEngine
         }
         public override void PhysicalUpdate()
         {
-            Radius = internalTransform.Scale.X;
+            //TODO: verify abs works
+            Radius = Math.Abs(internalTransform.Scale.X);
         }
     }
 }

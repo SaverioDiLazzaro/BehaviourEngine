@@ -193,7 +193,7 @@ namespace BehaviourEngine
         #endregion
 
         #region Algorythms (Collision Detection)
-        public static HitState OnAABB(BoxCollider2D a, BoxCollider2D b)
+        internal HitState OnAABB(BoxCollider2D a, BoxCollider2D b)
         {
             HitState hitState = new HitState();
 
@@ -240,7 +240,6 @@ namespace BehaviourEngine
         #endregion
 
         #region Algorythms (Collision Resolution)
-
         private void ResolveCollision(BoxCollider2D boxA, BoxCollider2D boxB, Vector2 normal)
         {
             ChangePosition(boxA, boxB, normal);
@@ -250,37 +249,38 @@ namespace BehaviourEngine
 
             ChangePosition(boxB, boxA, normal);
         }
-
         private void ChangePosition(BoxCollider2D boxA, BoxCollider2D boxB, Vector2 normal)
         {
             if (boxA.rigidbody != null)
             {
                 //Stop rigidbody
-                boxA.rigidbody.Velocity = Vector2.Zero;
-
                 Vector2 position = boxA.Owner.Transform.Position;
 
                 //hit from dx
                 if (normal.X > 0f)
                 {
+                    boxA.rigidbody.Velocity.X = 0f;
                     position.X = boxB.ExtentMax.X + boxA.HalfSize.X;
                 }
 
                 //hit from sx
                 if (normal.X < 0f)
                 {
+                    boxA.rigidbody.Velocity.X = 0f;
                     position.X = boxB.ExtentMin.X - boxA.HalfSize.X;
                 }
 
                 //hit from top
                 if (normal.Y < 0f)
                 {
+                    boxA.rigidbody.Velocity.Y = 0f;
                     position.Y = boxB.ExtentMin.Y - boxA.HalfSize.Y;
                 }
 
                 //hit from bottom
                 if (normal.Y > 0f)
                 {
+                    boxA.rigidbody.Velocity.Y = 0f;
                     position.Y = boxB.ExtentMax.Y + boxA.HalfSize.Y;
                 }
 

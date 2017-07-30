@@ -42,7 +42,8 @@ namespace BehaviourEngine
         }
         public override void PhysicalUpdate()
         {
-            Size = internalTransform.Scale;
+            //TODO: verify abs works
+            Size = new Vector2(Math.Abs(internalTransform.Scale.X), Math.Abs(internalTransform.Scale.Y));
         }
     }
 }

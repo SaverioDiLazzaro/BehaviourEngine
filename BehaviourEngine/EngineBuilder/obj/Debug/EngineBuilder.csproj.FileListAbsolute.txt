@@ -10,4 +10,3 @@ C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.pdb
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.pdb
-C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.csprojResolveAssemblyReference.cache
