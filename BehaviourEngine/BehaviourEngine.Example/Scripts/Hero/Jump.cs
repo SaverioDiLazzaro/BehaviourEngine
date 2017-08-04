@@ -9,9 +9,9 @@ using OpenTK;
 
 namespace BehaviourEngine.Example
 {
-    public class Jump : Behaviour, IStartable, IUpdatable
+    public class Jump : Behaviour, IStartable, IPhysical
     {
-        public float Force = 550f;
+        public float Force = 500f;
         public KeyCode Key = KeyCode.W;
 
         private Rigidbody2D rigidbody;
@@ -24,7 +24,7 @@ namespace BehaviourEngine.Example
             sensor = this.Owner.GetBehaviour<Sensor>();
         }
 
-        void IUpdatable.Update()
+        void IPhysical.PhysicalUpdate()
         {
             if (Input.IsKeyDown(Key) && sensor.IsGrounded)
             {

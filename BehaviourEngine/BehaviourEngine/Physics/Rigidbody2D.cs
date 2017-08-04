@@ -17,12 +17,12 @@ namespace BehaviourEngine
 
             this.AddForce(-Velocity * LinearFriction);
 
-            Owner.Transform.Position += Velocity * Time.DeltaTime;
+            Owner.Transform.Position += Velocity * Time.FixedDeltaTime;
         }
 
         public void AddForce(Vector2 force)
         {
-            Velocity += force * Time.DeltaTime;
+            Velocity += force * Time.FixedDeltaTime;
         }
     }
 }

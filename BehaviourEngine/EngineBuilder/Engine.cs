@@ -7,6 +7,7 @@ namespace EngineBuilder
     public abstract class Engine
     {
         public abstract bool IsRunning { get; set; }
+        public event Action ApplicationShutDown;
 
         protected List<ISystem> systems = new List<ISystem>();
 
@@ -27,6 +28,8 @@ namespace EngineBuilder
                     systems[i].Update();
                 }
             }
+            
+            ApplicationShutDown?.Invoke();
         }
 
         public ISystem[] DebugSystems()

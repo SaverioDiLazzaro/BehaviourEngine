@@ -3,9 +3,6 @@
 using Aiv.Fast2D;
 using OpenTK;
 
-using NAudio;
-using NAudio.Wave;
-
 namespace BehaviourEngine.Example
 {
     public class Game
@@ -33,14 +30,17 @@ namespace BehaviourEngine.Example
             #endregion
 
             #region Audio
-            IWavePlayer waveOutDevice;
-            AudioFileReader audioFileReader;
+            AudioManager.AddAudioClip("shoot", new AudioClip("Assets/Shoot.wav"));
+            AudioManager.AddAudioClip("bgmusic", new AudioClip("Assets/BgMusic.wav"));
+            #endregion
 
-            waveOutDevice = new WaveOut();
-            audioFileReader = new AudioFileReader("Assets/BgMusic.mp3");
-
-            waveOutDevice.Init(audioFileReader);
-            waveOutDevice.Play();
+            #region BgMusic
+            GameObject bgMusic = new GameObject();
+            AudioSource source = new AudioSource();
+            source.AudioClip = AudioManager.GetAudioClip("bgmusic");
+            source.Play(true);
+            bgMusic.AddBehaviour(source);
+            GameObject.Spawn(bgMusic);
             #endregion
 
             #region Pool Registrations
@@ -172,7 +172,7 @@ namespace BehaviourEngine.Example
 
             #region UnitSpawner
             ZombieSpawner spawner = new ZombieSpawner();
-            spawner.AddSpawnPoint(new SpawnPoint() { Position = new Vector2(1f,  -2f), Direction =  Vector2.UnitX });
+            spawner.AddSpawnPoint(new SpawnPoint() { Position = new Vector2(1f, -2f), Direction = Vector2.UnitX });
             spawner.AddSpawnPoint(new SpawnPoint() { Position = new Vector2(10f, -2f), Direction = -Vector2.UnitX });
             GameObject.Spawn(spawner);
             #endregion

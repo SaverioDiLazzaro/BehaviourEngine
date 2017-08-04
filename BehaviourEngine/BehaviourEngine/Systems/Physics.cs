@@ -10,8 +10,8 @@ namespace BehaviourEngine
     {
         public Vector2 Gravity = new Vector2(0f, 9.81f);
 
-        //TODO: implement
-        //public float FixedDeltaTime = 0.02f;
+        public float FixedDeltaTime = 0.02f;
+        private float currentTime = 0f;
 
         private List<Collider2D> colliders;
         private List<CollisionPair2D> collisionPairs;
@@ -36,17 +36,24 @@ namespace BehaviourEngine
         #region System<T>
         public override void Update()
         {
-            base.Update();
+            currentTime += Time.DeltaTime;
 
-            for (int i = 0; i < items.Count; i++)
+            if (currentTime >= FixedDeltaTime)
             {
-                if (items[i].Enabled)
-                {
-                    items[i].PhysicalUpdate();
-                }
-            }
+                currentTime -= FixedDeltaTime;
 
-            CheckCollisions();
+                base.Update();
+
+                for (int i = 0; i < items.Count; i++)
+                {
+                    if (items[i].Enabled)
+                    {
+                        items[i].PhysicalUpdate();
+                    }
+                }
+
+                CheckCollisions();
+            }
         }
 
         private void CheckCollisions()
@@ -58,7 +65,7 @@ namespace BehaviourEngine
                     switch (collisionPairs[i].PairCollisionMode)
                     {
                         case CollisionMode.Trigger:
-                            if      (collisionPairs[i].collider1 is BoxCollider2D    && collisionPairs[i].collider2 is BoxCollider2D)
+                            if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
                             {
                                 if (this.Intersect(collisionPairs[i].collider1 as BoxCollider2D, collisionPairs[i].collider2 as BoxCollider2D))
                                 {
@@ -94,7 +101,7 @@ namespace BehaviourEngine
                                 }
                             }
 
-                            else if (collisionPairs[i].collider1 is BoxCollider2D    && collisionPairs[i].collider2 is CircleCollider2D)
+                            else if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is CircleCollider2D)
                             {
                                 if (this.Intersect(collisionPairs[i].collider2 as CircleCollider2D, collisionPairs[i].collider1 as BoxCollider2D))
                                 {
@@ -114,7 +121,7 @@ namespace BehaviourEngine
                                 BoxCollider2D boxA = collisionPairs[i].collider1 as BoxCollider2D;
                                 BoxCollider2D boxB = collisionPairs[i].collider2 as BoxCollider2D;
 
-                                HitState hitState = OnAABB(boxA, boxB);
+                                HitState hitState = AABBvsAABB(boxA, boxB);
 
                                 collisionPairs[i].Collision(hitState);
 
@@ -152,26 +159,20 @@ namespace BehaviourEngine
         #endregion
 
         #region Algorythms (Trigger Detection)
-        internal bool Intersect(BoxCollider2D collider1, BoxCollider2D collider2)
+        internal bool Intersect(BoxCollider2D box1, BoxCollider2D box2)
         {
-            if (collider1.ExtentMin.X < collider2.ExtentMax.X &&
-                collider1.ExtentMax.X > collider2.ExtentMin.X &&
-                collider1.ExtentMin.Y < collider2.ExtentMax.Y &&
-                collider1.ExtentMax.Y > collider2.ExtentMin.Y)
-            {
-                return true;
-            }
-            return false;
+            return (box1.ExtentMin.X < box2.ExtentMax.X &&
+                    box1.ExtentMax.X > box2.ExtentMin.X &&
+                    box1.ExtentMin.Y < box2.ExtentMax.Y &&
+                    box1.ExtentMax.Y > box2.ExtentMin.Y);
         }
 
-        internal bool Intersect(CircleCollider2D collider1, CircleCollider2D collider2)
+        internal bool Intersect(CircleCollider2D circle1, CircleCollider2D circle2)
         {
-            Vector2 distance = collider1.Center - collider2.Center;
-            if (distance.Length <= collider1.Radius + collider2.Radius)
-            {
-                return true;
-            }
-            return false;
+            float r2 = (circle1.Radius + circle2.Radius) * (circle1.Radius + circle2.Radius);
+            float x2 = (circle1.Center.X + circle2.Center.X) * (circle1.Center.X + circle2.Center.X);
+            float y2 = (circle1.Center.Y + circle2.Center.Y) * (circle1.Center.Y + circle2.Center.Y);
+            return r2 < x2 + y2;
         }
 
         internal bool Intersect(CircleCollider2D circle, BoxCollider2D rectangle)
@@ -193,7 +194,7 @@ namespace BehaviourEngine
         #endregion
 
         #region Algorythms (Collision Detection)
-        internal HitState OnAABB(BoxCollider2D a, BoxCollider2D b)
+        private HitState AABBvsAABB(BoxCollider2D a, BoxCollider2D b)
         {
             HitState hitState = new HitState();
 
@@ -243,7 +244,7 @@ namespace BehaviourEngine
         private void ResolveCollision(BoxCollider2D boxA, BoxCollider2D boxB, Vector2 normal)
         {
             ChangePosition(boxA, boxB, normal);
-            
+
             //invert normal
             normal *= -1;
 
@@ -289,6 +290,5 @@ namespace BehaviourEngine
             }
         }
         #endregion
-
     }
 }

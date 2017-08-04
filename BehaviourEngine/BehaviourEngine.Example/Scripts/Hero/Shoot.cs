@@ -12,15 +12,21 @@ namespace BehaviourEngine.Example
         public float Force = 1000f;
         private Transform locator;
 
+        private static AudioSource audioSource;
+
         public Shoot(Transform locator)
         {
             this.locator = locator;
+            audioSource = new AudioSource();
+            audioSource.AudioClip = AudioManager.GetAudioClip("shoot");
         }
 
         void IUpdatable.Update()
         {
             if (Input.IsMouseButtonDown(MouseButton.Left))
             {
+                audioSource.Play();
+
                 Vector2 dir;
                 if(Input.MousePosition.X > this.Owner.Transform.Position.X)
                 {

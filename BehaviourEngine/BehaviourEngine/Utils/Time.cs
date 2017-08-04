@@ -9,5 +9,13 @@
                 return Graphics.Instance.Window.deltaTime;
             }
         }
+
+        public static float FixedDeltaTime
+        {
+            get
+            {
+                return Physics.Instance.FixedDeltaTime;
+            }
+        }
     }
 }

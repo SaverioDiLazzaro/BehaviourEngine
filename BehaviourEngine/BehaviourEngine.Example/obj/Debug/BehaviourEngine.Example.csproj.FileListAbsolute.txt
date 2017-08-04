@@ -23,3 +23,6 @@ C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.E
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\Assets\BgMusic.mp3
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\NAudio.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\NAudio.xml
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\Assets\Shoot.mp3
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\Assets\Shoot.wav
+C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\BehaviourEngine.Example\bin\Debug\Assets\BgMusic.wav

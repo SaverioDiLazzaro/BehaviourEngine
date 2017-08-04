@@ -38,6 +38,9 @@
     <Reference Include="aiv-fast2d, Version=1.0.6336.29264, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Aiv.Fast2D.0.13.0\lib\net40\aiv-fast2d.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.8.1\lib\net35\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
     </Reference>
@@ -51,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audio\AudioClip.cs" />
+    <Compile Include="Audio\AudioSource.cs" />
     <Compile Include="Graphics\CircleCollider2DRenderer.cs" />
     <Compile Include="Graphics\BoxCollider2DRenderer.cs" />
     <Compile Include="Graphics\SpriteRenderer.cs" />
@@ -86,7 +91,8 @@
     <Compile Include="Utils\Input\JoystickIndex.cs" />
     <Compile Include="Utils\Input\MouseButton.cs" />
     <Compile Include="Utils\Pool.cs" />
-    <Compile Include="Utils\TextureManager.cs" />
+    <Compile Include="Audio\AudioManager.cs" />
+    <Compile Include="Graphics\TextureManager.cs" />
     <Compile Include="Utils\Time.cs" />
   </ItemGroup>
   <ItemGroup>
