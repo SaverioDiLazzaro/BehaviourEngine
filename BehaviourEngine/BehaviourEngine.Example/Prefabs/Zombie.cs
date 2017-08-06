@@ -25,6 +25,8 @@ namespace BehaviourEngine.Example
 
         public Zombie()
         {
+            this.Layer = (uint)CollisionLayer.Enemy;
+
             this.Transform.Scale = Size;
             originalScale = this.Transform.Scale;
             Flip();

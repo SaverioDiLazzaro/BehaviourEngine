@@ -7,6 +7,7 @@ namespace BehaviourEngine
 {
     public class GameObject
     {
+        public uint Layer = LayerManager.DefaultLayer;
         public Transform Transform;
         public bool Active;
 

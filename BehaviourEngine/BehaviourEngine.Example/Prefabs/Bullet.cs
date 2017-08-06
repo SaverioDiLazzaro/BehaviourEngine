@@ -14,6 +14,8 @@ namespace BehaviourEngine.Example
 
         public Bullet()
         {
+            this.Layer = (uint)CollisionLayer.Bullet;
+
             this.Transform.Scale = Vector2.One * 0.2f;
 
             SpriteRenderer renderer = new SpriteRenderer(TextureManager.GetTexture("bullet"));

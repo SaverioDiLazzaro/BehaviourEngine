@@ -52,6 +52,7 @@
     <Compile Include="Main\Program.cs" />
     <Compile Include="Prefabs\Zombie.cs" />
     <Compile Include="Scripts\Debug\DiagnosticTool.cs" />
+    <Compile Include="Scripts\Enums\CollisionLayer.cs" />
     <Compile Include="Scripts\ObjectPooling\RecycleWhenOutOfScreen.cs" />
     <Compile Include="Prefabs\Bullet.cs" />
     <Compile Include="Scripts\UnitSpawner\SpawnPoint.cs" />

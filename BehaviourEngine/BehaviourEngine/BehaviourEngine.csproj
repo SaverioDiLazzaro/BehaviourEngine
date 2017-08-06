@@ -67,6 +67,7 @@
     <Compile Include="Physics\CollisionPair2D.cs" />
     <Compile Include="Physics\CollisionPairState.cs" />
     <Compile Include="Physics\HitState.cs" />
+    <Compile Include="Physics\LayerManager.cs" />
     <Compile Include="Physics\Rigidbody2D.cs" />
     <Compile Include="Utils\AI\FSM.cs" />
     <Compile Include="Utils\AI\FSMState.cs" />

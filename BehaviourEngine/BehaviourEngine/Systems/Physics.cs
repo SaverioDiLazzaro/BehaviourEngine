@@ -52,11 +52,11 @@ namespace BehaviourEngine
                     }
                 }
 
-                CheckCollisions();
+                CheckAndResolveCollisions();
             }
         }
 
-        private void CheckCollisions()
+        private void CheckAndResolveCollisions()
         {
             for (int i = 0; i < collisionPairs.Count; i++)
             {
@@ -116,18 +116,21 @@ namespace BehaviourEngine
                             break;
 
                         case CollisionMode.Collision:
-                            if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
+                            if (LayerManager.CanCollide(collisionPairs[i]))
                             {
-                                BoxCollider2D boxA = collisionPairs[i].collider1 as BoxCollider2D;
-                                BoxCollider2D boxB = collisionPairs[i].collider2 as BoxCollider2D;
-
-                                HitState hitState = AABBvsAABB(boxA, boxB);
-
-                                collisionPairs[i].Collision(hitState);
-
-                                if (collisionPairs[i].collisionPairState.stay)
+                                if (collisionPairs[i].collider1 is BoxCollider2D && collisionPairs[i].collider2 is BoxCollider2D)
                                 {
-                                    ResolveCollision(boxA, boxB, hitState.normal);
+                                    BoxCollider2D boxA = collisionPairs[i].collider1 as BoxCollider2D;
+                                    BoxCollider2D boxB = collisionPairs[i].collider2 as BoxCollider2D;
+
+                                    HitState hitState = AABBvsAABB(boxA, boxB);
+
+                                    collisionPairs[i].Collision(hitState);
+
+                                    if (collisionPairs[i].collisionPairState.stay)
+                                    {
+                                        ResolveCollision(boxA, boxB, hitState.normal);
+                                    }
                                 }
                             }
 
@@ -141,9 +144,7 @@ namespace BehaviourEngine
         {
             base.Add(physicalObject);
 
-            Collider2D collider = physicalObject as Collider2D;
-
-            if (collider != null)
+            if (physicalObject is Collider2D collider)
             {
                 if (colliders.Count > 0)
                 {

@@ -14,9 +14,16 @@ namespace BehaviourEngine.Example
             window.SetDefaultOrthographicSize(10f);
 
             Engine.Init(window);
+            #endregion
 
-            //Physics Setup
+            #region Physics Setup
             Physics.Instance.Gravity *= 2f;
+
+            //Player collides with Wall
+            LayerManager.AddLayer((uint)CollisionLayer.Hero, (uint)CollisionLayer.Wall);
+
+            //Enemy collides with Wall & Bullet
+            LayerManager.AddLayer((uint)CollisionLayer.Enemy, (uint)CollisionLayer.Wall + (uint)CollisionLayer.Bullet);
             #endregion
 
             #region Textures
@@ -44,8 +51,8 @@ namespace BehaviourEngine.Example
             #endregion
 
             #region Pool Registrations
-            Pool<Bullet>.Register(() => new Bullet(), 100);
-            Pool<Zombie>.Register(() => new Zombie(), 100);
+            Pool<Bullet>.Register(() => new Bullet()/*, 100*/);
+            Pool<Zombie>.Register(() => new Zombie()/*, 100*/);
             #endregion
 
             #region Background (Graphics)
@@ -111,6 +118,8 @@ namespace BehaviourEngine.Example
             Vector2 size = Vector2.One * 0.75f;
 
             GameObject hero = new GameObject();
+            hero.Layer = (uint)CollisionLayer.Hero;
+
             hero.Transform.Scale = size;
 
             SpriteRenderer heroRenderer = new SpriteRenderer(TextureManager.GetTexture("hero"));

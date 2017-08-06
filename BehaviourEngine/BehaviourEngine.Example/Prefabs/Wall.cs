@@ -12,6 +12,8 @@ namespace BehaviourEngine.Example
     {
         public Wall(Vector2 size)
         {
+            this.Layer = (uint)CollisionLayer.Wall;
+
             BoxCollider2D collider = new BoxCollider2D(size);
             this.AddBehaviour(collider);
 
