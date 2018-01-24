@@ -22,23 +22,21 @@ namespace EngineBuilder
 
         public virtual void Add(IEntity entity)
         {
-            T item = entity as T;
-            if (item != null)
+            if (entity is T item)
             {
                 waitForAddItems.Enqueue(item);
             }
         }
         public virtual void Remove(IEntity entity)
         {
-            T item = entity as T;
-            if (item != null)
+            if (entity is T item)
             {
                 waitForRemoveItems.Enqueue(item);
             }
         }
         private void DeferredAddOrRemoveItems()
         {
-            //actual add objects to the system
+            //actually add objects to the system
             int count;
             if (waitForAddItems.Count > 0)
             {

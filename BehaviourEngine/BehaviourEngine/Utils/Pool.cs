@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace BehaviourEngine
 {
@@ -7,8 +8,9 @@ namespace BehaviourEngine
     {
         private static Queue<T> instances;
         private static Func<T> allocator;
+        private static int count;
 
-        public static void Register(Func<T> allocator, int preallocations = 0)
+        public static void Register(Func<T> allocator, int capacity = 4)
         {
             if (instances != null)
                 throw new Exception("Pool already registered");
@@ -16,13 +18,8 @@ namespace BehaviourEngine
             if (allocator == null)
                 throw new NullReferenceException("Func<T> allocator can't be null");
 
-            instances = new Queue<T>(preallocations);
-            for (int i = 0; i < preallocations; i++)
-            {
-                instances.Enqueue(allocator.Invoke());
-            }
-
             Pool<T>.allocator = allocator;
+            instances = new Queue<T>(capacity);
         }
 
         public static T GetInstance(Action<T> onGet = null)

@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace BehaviourEngine
 {
-    public class FSM : Behaviour, IUpdatable
+    public class FSM : Behaviour, IUpdatable, IPhysical
     {
         public string DebugCurrentState { get; private set; }
+
+        public enum FSMUpdateType
+        {
+            DeltaUpdate,
+            FixedUpdate
+        }
+        public FSMUpdateType UpdateType = FSMUpdateType.DeltaUpdate;
 
         private Dictionary<string, FSMState> states = new Dictionary<string, FSMState>();
         private FSMState currentState;
@@ -37,6 +44,21 @@ namespace BehaviourEngine
         }
 
         void IUpdatable.Update()
+        {
+            if(this.UpdateType == FSMUpdateType.DeltaUpdate)
+            {
+                this.Update();
+            }
+        }
+
+        void IPhysical.PhysicalUpdate()
+        {
+            if (this.UpdateType == FSMUpdateType.FixedUpdate)
+            {
+                this.Update();
+            }
+        }
+        private void Update()
         {
             currentState = currentState.Update();
             DebugCurrentState = currentState.ToString();

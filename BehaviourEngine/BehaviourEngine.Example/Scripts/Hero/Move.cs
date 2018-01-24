@@ -9,13 +9,13 @@ using OpenTK;
 
 namespace BehaviourEngine.Example
 {
-    public class Move : Behaviour, IUpdatable
+    public class Move : Behaviour, IPhysical
     {
         public float Speed = 3f;
         public KeyCode Left = KeyCode.A;
         public KeyCode Right = KeyCode.D;
 
-        void IUpdatable.Update()
+        void IPhysical.PhysicalUpdate()
         {
             Vector2 pos = this.Owner.Transform.Position;
 

@@ -20,6 +20,12 @@ namespace BehaviourEngine
 
             //Systems are updated by the order they are added to the engine
             this.Add(startSystem, updateSystem, Physics.Instance, Graphics.Instance);
+
+            //TODO: change with Segment
+            TextureManager.AddTexture("Box2D", new Texture("Assets/Box2D.png"));
+
+            //TODO: Change with algorythm
+            TextureManager.AddTexture("Circle2D", new Texture("Assets/Circle2D.png"));
         }
     }
 }

@@ -49,11 +49,6 @@ namespace BehaviourEngine
     public class BoxCollider2DRenderer : SpriteRenderer, IStartable
     {
         BoxCollider2D collider;
-        static BoxCollider2DRenderer()
-        {
-            //TODO: change with Segment
-            TextureManager.AddTexture("Box2D", new Texture("Assets/Box2D.png"));
-        }
         public BoxCollider2DRenderer() : base(TextureManager.GetTexture("Box2D")) { }
         void IStartable.Start()
         {

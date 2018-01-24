@@ -6,11 +6,6 @@ namespace BehaviourEngine
     public class CircleCollider2DRenderer : SpriteRenderer, IStartable
     {
         CircleCollider2D collider;
-        static CircleCollider2DRenderer()
-        {
-            //Change with algorythm
-            TextureManager.AddTexture("Circle2D", new Texture("Assets/Circle2D.png"));
-        }
         public CircleCollider2DRenderer() : base(TextureManager.GetTexture("Circle2D")) { }
 
         void IStartable.Start()

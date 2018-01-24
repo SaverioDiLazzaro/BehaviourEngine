@@ -1,6 +1,7 @@
 ﻿using OpenTK;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,9 @@ namespace BehaviourEngine.Example
 
         private static AudioSource audioSource;
 
+        Stopwatch sw = new Stopwatch();
+
+
         public Shoot(Transform locator)
         {
             this.locator = locator;
@@ -26,7 +30,7 @@ namespace BehaviourEngine.Example
             if (Input.IsMouseButtonDown(MouseButton.Left))
             {
                 audioSource.Play();
-
+                
                 Vector2 dir;
                 if(Input.MousePosition.X > this.Owner.Transform.Position.X)
                 {
@@ -38,6 +42,7 @@ namespace BehaviourEngine.Example
                 }
 
                 Bullet bullet = Pool<Bullet>.GetInstance(b => b.OnGet());
+
                 bullet.Transform.Position = locator.Position;
                 bullet.Shoot(dir, Force);
 

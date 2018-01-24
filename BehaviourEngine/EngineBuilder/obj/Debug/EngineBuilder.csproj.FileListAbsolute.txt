@@ -11,3 +11,9 @@ C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.dll
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.pdb
 C:\Users\Savo\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.csprojResolveAssemblyReference.cache
+C:\Users\Savvs\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.dll
+C:\Users\Savvs\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\bin\Debug\EngineBuilder.pdb
+C:\Users\Savvs\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.csprojResolveAssemblyReference.cache
+C:\Users\Savvs\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.csproj.CoreCompileInputs.cache
+C:\Users\Savvs\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.dll
+C:\Users\Savvs\Documents\GitHub\BehaviourEngine\BehaviourEngine\EngineBuilder\obj\Debug\EngineBuilder.pdb

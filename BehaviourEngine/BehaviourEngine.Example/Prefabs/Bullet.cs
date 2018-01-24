@@ -1,10 +1,4 @@
 ﻿using OpenTK;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EngineBuilder;
 
 namespace BehaviourEngine.Example
 {
@@ -41,9 +35,9 @@ namespace BehaviourEngine.Example
         private void OnTriggerEnter(Collider2D other)
         {
             //TODO: kill zombie       
-            if(other.Owner is Zombie)
+            if (other.Owner is Zombie zombie)
             {
-                (other.Owner as Zombie).Die();
+                zombie.Die();
             }
         }
 

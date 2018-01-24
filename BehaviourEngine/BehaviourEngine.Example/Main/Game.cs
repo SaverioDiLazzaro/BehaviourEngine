@@ -51,8 +51,8 @@ namespace BehaviourEngine.Example
             #endregion
 
             #region Pool Registrations
-            Pool<Bullet>.Register(() => new Bullet()/*, 100*/);
-            Pool<Zombie>.Register(() => new Zombie()/*, 100*/);
+            Pool<Bullet>.Register(() => new Bullet(), 100);
+            Pool<Zombie>.Register(() => new Zombie(), 100);
             #endregion
 
             #region Background (Graphics)

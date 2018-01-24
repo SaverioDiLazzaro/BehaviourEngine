@@ -32,6 +32,7 @@ namespace BehaviourEngine.Example
             Flip();
 
             FSM fsm = new FSM();
+            //fsm.UpdateType = FSM.FSMUpdateType.FixedUpdate;
             StateMove move = new StateMove(fsm, this);
             fsm.AddState("move", move);
             fsm.Init(move);
