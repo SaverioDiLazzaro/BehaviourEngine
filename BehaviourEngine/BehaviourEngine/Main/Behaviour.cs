@@ -4,6 +4,8 @@ namespace BehaviourEngine
 {
     public abstract class Behaviour : IEntity
     {
+        public GameObject Owner;
+
         public bool Enabled
         {
             get { return enabled && Owner.Active; }
@@ -11,11 +13,9 @@ namespace BehaviourEngine
         }
         private bool enabled;
 
-        public GameObject Owner;
-
-        internal void SetOwner(GameObject gameObject)
+        internal void SetOwner(GameObject owner)
         {
-            Owner = gameObject;
+            this.Owner = owner;
         }
     }
 }

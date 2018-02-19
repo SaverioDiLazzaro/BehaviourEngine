@@ -8,21 +8,32 @@ namespace BehaviourEngine
         public bool IsGravityAffected = true;
         public float LinearFriction;
 
+        public float Mass = 1f;
+
         void IPhysical.PhysicalUpdate()
         {
-            if (IsGravityAffected)
+            //gravity
+            if (this.IsGravityAffected)
             {
                 this.AddForce(Physics.Instance.Gravity);
             }
 
-            this.AddForce(-Velocity * LinearFriction);
+            //friction
+            this.AddForce(-this.Velocity * this.LinearFriction);
 
-            Owner.Transform.Position += Velocity * Time.FixedDeltaTime;
+            //actually change position
+            this.Owner.Transform.Position += this.Velocity * Time.FixedDeltaTime;
         }
 
+        //TODO: handle ForceModes
         public void AddForce(Vector2 force)
         {
-            Velocity += force * Time.FixedDeltaTime;
+            this.Velocity += (force / this.Mass) * Time.FixedDeltaTime ;
+        }
+
+        public void AddForceImpulse(Vector2 force)
+        {
+            this.Velocity += (force / this.Mass);
         }
     }
 }

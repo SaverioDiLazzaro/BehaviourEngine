@@ -52,7 +52,7 @@ namespace BehaviourEngine.Example
 
             #region Pool Registrations
             Pool<Bullet>.Register(() => new Bullet(), 100);
-            Pool<Zombie>.Register(() => new Zombie(), 100);
+            Pool<Zombie>.Register(() => new Zombie(), 10);
             #endregion
 
             #region Background (Graphics)
@@ -140,6 +140,7 @@ namespace BehaviourEngine.Example
 
             Rigidbody2D heroRigidbody = new Rigidbody2D();
             hero.AddBehaviour(heroRigidbody);
+            //heroRigidbody.Mass = 100f;
 
             BoxCollider2D heroCollider = new BoxCollider2D(size);
             hero.AddBehaviour(heroCollider);
@@ -161,7 +162,6 @@ namespace BehaviourEngine.Example
 
             GameObject.Spawn(gun, hero.Transform.Position + new Vector2(0.8f, 0.1f));
             gun.Transform.SetParent(hero.Transform);
-
             #endregion
 
             #region Gun Locator
@@ -185,6 +185,12 @@ namespace BehaviourEngine.Example
             spawner.AddSpawnPoint(new SpawnPoint() { Position = new Vector2(10f, -2f), Direction = -Vector2.UnitX });
             GameObject.Spawn(spawner);
             #endregion
+
+            DiagnosticTool tool = new DiagnosticTool();
+            GameObject x = new GameObject();
+            x.AddBehaviour<DiagnosticTool>(tool);
+
+            GameObject.Spawn(x);
         }
 
         public static void Run()

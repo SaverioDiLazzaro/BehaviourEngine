@@ -10,7 +10,7 @@ namespace BehaviourEngine.Example
     {
         void IUpdatable.Update()
         {
-            Console.WriteLine(Time.DeltaTime);
+            Console.WriteLine("DELTA: " + Time.DeltaTime + "\tFPS: " + 1f / Time.DeltaTime);
         }
     }
 }
