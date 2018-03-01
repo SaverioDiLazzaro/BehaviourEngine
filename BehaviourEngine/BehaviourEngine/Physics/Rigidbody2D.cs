@@ -28,12 +28,14 @@ namespace BehaviourEngine
         //TODO: handle ForceModes
         public void AddForce(Vector2 force)
         {
-            this.Velocity += (force / this.Mass) * Time.FixedDeltaTime ;
+            var a = (force / this.Mass);
+            this.Velocity += a * Time.FixedDeltaTime;
         }
 
         public void AddForceImpulse(Vector2 force)
         {
-            this.Velocity += (force / this.Mass);
+            var a = (force / this.Mass);
+            this.Velocity += a;
         }
     }
 }
