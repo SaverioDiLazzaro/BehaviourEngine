@@ -10,8 +10,8 @@ namespace BehaviourEngine
     {
         public Vector2 Gravity = new Vector2(0f, 9.81f);
 
-        public float FixedDeltaTime = 0.02f;
-        private float currentTime = 0f;
+        public float FixedDeltaTime = 0.016f;
+        private float accumulator = 0f;
 
         private List<Collider2D> colliders;
         private List<CollisionPair2D> collisionPairs;
@@ -36,24 +36,28 @@ namespace BehaviourEngine
         #region System<T>
         public override void Update()
         {
-            currentTime += Time.DeltaTime;
+            accumulator += Time.DeltaTime;
 
-            if (currentTime >= FixedDeltaTime)
+            while (accumulator >= FixedDeltaTime)
             {
-                currentTime -= FixedDeltaTime;
-
-                base.Update();
-
-                for (int i = 0; i < items.Count; i++)
-                {
-                    if (items[i].Enabled)
-                    {
-                        items[i].PhysicalUpdate();
-                    }
-                }
-
-                CheckAndResolveCollisions();
+                accumulator -= FixedDeltaTime;
+                Integrate();
             }
+        }
+
+        private void Integrate()
+        {
+            base.Update();
+
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].Enabled)
+                {
+                    items[i].PhysicalUpdate();
+                }
+            }
+
+            CheckAndResolveCollisions();
         }
 
         private void CheckAndResolveCollisions()

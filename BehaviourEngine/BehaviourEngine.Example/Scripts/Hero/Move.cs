@@ -21,12 +21,12 @@ namespace BehaviourEngine.Example
 
             if (Input.IsKeyPressed(Left))
             {
-                pos.X -= Speed * Time.DeltaTime;
+                pos.X -= Speed * Time.FixedDeltaTime;
             }
 
             if (Input.IsKeyPressed(Right))
             {
-                pos.X += Speed * Time.DeltaTime;
+                pos.X += Speed * Time.FixedDeltaTime;
             }
 
             this.Owner.Transform.Position = pos;

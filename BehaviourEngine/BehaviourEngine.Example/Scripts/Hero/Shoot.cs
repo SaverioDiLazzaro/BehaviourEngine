@@ -10,13 +10,10 @@ namespace BehaviourEngine.Example
 {
     public class Shoot : Behaviour, IUpdatable
     {
-        public float Force = 1000f;
+        public float Force = 10f;
         private Transform locator;
 
         private static AudioSource audioSource;
-
-        Stopwatch sw = new Stopwatch();
-
 
         public Shoot(Transform locator)
         {

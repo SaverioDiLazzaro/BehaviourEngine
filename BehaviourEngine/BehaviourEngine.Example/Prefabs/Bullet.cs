@@ -55,7 +55,7 @@ namespace BehaviourEngine.Example
 
         public void Shoot(Vector2 direction, float force)
         {
-            rigidbody.AddForce(direction * force);
+            rigidbody.AddForceImpulse(direction * force);
         }
     }
 }
